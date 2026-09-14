@@ -1,0 +1,10 @@
+# method Game.resetStage()
+@fast 
+
+@define Int x1 = this.neutral_stage.x1
+@define Int z1 = this.neutral_stage.z1
+@define Int x2 = this.neutral_stage.x2
+@define Int z2 = this.neutral_stage.z2
+@define Int y = this.neutral_stage.y
+
+@bypass /execute in minecraft:theta run clone {{x1}} {{y}} {{z1}} {{x2}} {{y}} {{z2}} {{this.x}} {{this.y}} {{this.z}}

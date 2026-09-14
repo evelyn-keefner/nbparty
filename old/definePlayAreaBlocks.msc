@@ -1,0 +1,11 @@
+# Coordinates of the corner of the play area that has the lowest coordinates (furtherest NW)
+@define Int baseX = 9896
+@define Int baseY = 81
+@define Int baseZ = 10010
+
+@var nbparty::play_area_blocks = BlockLocation[]
+@for Int i in list::range(0, 11)
+    @for Int j in list::range(0, 11)
+        @var nbparty::play_area_blocks.append(BlockLocation(baseX + i, baseY, baseZ + j, "Theta"))
+    @done
+@done

@@ -1,0 +1,8 @@
+@fast
+@var nbparty::blocks.shuffle()
+
+@define Int x = block.getX()
+@define Int y = block.getY()
+@define Int z = block.getZ()
+
+@bypass /execute in minecraft:theta run setblock {{x}} {{y}} {{z}} {{nbparty::blocks[0]}}

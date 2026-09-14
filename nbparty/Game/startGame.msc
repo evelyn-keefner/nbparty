@@ -1,0 +1,47 @@
+# method: Game.startGame()
+        # game loads neutral stage
+        # random stage added
+        # countdown at start
+        # color immediately chosen (maybe walls on the side that show the block ? definitely put it in player hotbar)
+        # wait for running_time time (have indicator somewhere on player screen)
+        # remove all blocks except chosen block
+        # wait like 3 seconds 
+        # 
+        # loop:
+        # update round #
+        # random stage added 
+        # wait 5 seconds maybe for players to run around on new stage
+        # choose random block from stage
+        # wait for running_time time
+        # remove all blocks exception chosen block
+        # wait 3 seconds
+        # 
+        # maybe time decrease every 5 rounds ?
+        # in original game people die on the border from 1.5 to 1 second
+        # decreases in increments of 0.5
+        # just make stage 99x99 to stay within list limit
+        # start at 5 seconds to choose? changing scaling later is easy
+        # game should become impossible and go until only 1 player is left
+        # constantly polling for player death status might be laggy but would need to do so near the end to see who really won
+        # otherwise too many ties
+
+@if (!this.beginCountdown())
+    @if (this.times_start_pressed % 2 != 0)
+        @var this.playSoundToAllPlayers("minecraft:entity.villager.hurt", "1.0", "1.27")
+        @var this.messageAllPlayers("[Not Block Party] Start cancelled!")
+    @fi
+    @return
+@fi
+
+@var this.playSoundToAllPlayers("minecraft:entity.experience_orb.pickup", "1.0", "1.0")
+@var this.messageAllPlayers("[Not Block Party] Start!")
+
+@var this.game_active = true
+@var this.newRandomStage()
+@delay 5s
+@var this.messageAllPlayers("The game is over now")
+@var this.resetStage()
+@var this.game_active = false
+
+@var this.players.clear()
+@var this.start_game_check = false

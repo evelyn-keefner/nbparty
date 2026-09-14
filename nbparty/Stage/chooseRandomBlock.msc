@@ -1,0 +1,6 @@
+# method: Stage.chooseRandomBlock()
+@fast
+@var this.used_blocks.shuffle()
+@player [nbparty] printing randomly selected block:
+@player used_block: {{this.used_blocks[0]}}
+@return this.used_blocks[0]

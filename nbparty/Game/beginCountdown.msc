@@ -1,0 +1,49 @@
+# method Boolean beginCountdown()
+# start_game_check default false -> constantly checks if it's true to to continue with countdown & starting game
+@var this.start_game_check = !this.start_game_check
+
+@if this.start_game_check
+    @var this.messageAllPlayers("[Not Block Party] Starting Game in:")
+    @delay 1s
+@else
+    @var this.times_start_pressed += 1
+    @return false
+@fi
+
+@if this.start_game_check
+    @var this.playSoundToAllPlayers("minecraft:entity.experience_orb.pickup", "1.0", "1.0")
+    @var this.messageAllPlayers("[Not Block Party] 3")
+    @delay 1s
+@else
+    @var this.times_start_pressed += 1
+    @return false
+@fi
+
+@if this.start_game_check
+    @var this.playSoundToAllPlayers("minecraft:entity.experience_orb.pickup", "1.0", "1.0")
+    @var this.messageAllPlayers("[Not Block Party] 2")
+    @delay 1s
+@else
+    @var this.times_start_pressed += 1
+    @return false
+@fi
+
+@if this.start_game_check
+    @var this.playSoundToAllPlayers("minecraft:entity.experience_orb.pickup", "1.0", "1.0")
+    @var this.messageAllPlayers("[Not Block Party] 1")
+    @delay 1s
+@else
+    @var this.times_start_pressed += 1
+    @return false
+@fi
+
+
+@if this.start_game_check
+    @delay 1s
+@else
+    @var this.times_start_pressed += 1
+    @return false
+@fi
+
+@var this.times_start_pressed = 0
+@return true

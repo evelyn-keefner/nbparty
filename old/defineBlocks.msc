@@ -1,0 +1,2 @@
+# @command /variable define cbgame String[] blocks = String["red_concrete", "orange_concrete", "yellow_concrete", "green_concrete", "blue_concrete", "purple_concrete"]
+@var nbparty::blocks = String["red_concrete", "orange_concrete", "yellow_concrete", "green_concrete", "blue_concrete", "purple_concrete"]

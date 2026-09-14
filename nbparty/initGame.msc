@@ -1,0 +1,3 @@
+@fast
+
+@var nbparty::currentGame = nbparty::Game(9976, 87, 10063, nbparty::stages, nbparty::neutral_stage)

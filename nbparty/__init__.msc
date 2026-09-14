@@ -1,0 +1,12 @@
+@player [nbparty] running __init__
+
+@player [nbparty] initializing stages
+@var nbparty::initStages()
+
+@player [nbparty] initializing neutral stage
+@var nbparty::initNeutralStage()
+
+@player [nbparty] initializing game object
+@var nbparty::initGame()
+
+@player [nbparty] __init__ completed.

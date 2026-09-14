@@ -1,0 +1,13 @@
+# method Game.newRandomStage()
+@fast 
+
+@var this.stages.shuffle()
+@var this.current_stage = this.stages[0]
+
+@define Int x1 = this.current_stage.x1
+@define Int z1 = this.current_stage.z1
+@define Int x2 = this.current_stage.x2
+@define Int z2 = this.current_stage.z2
+@define Int y = this.current_stage.y
+
+@bypass /execute in minecraft:theta run clone {{x1}} {{y}} {{z1}} {{x2}} {{y}} {{z2}} {{this.x}} {{this.y}} {{this.z}}

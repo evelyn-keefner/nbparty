@@ -1,0 +1,5 @@
+@fast
+
+@for BlockLocation block1 in cbgame::play_area_blocks
+    @var nbparty::randomizeBlock(block1)
+@done

@@ -1,0 +1,3 @@
+@fast
+
+@var nbparty::neutral_stage = nbparty::Stage(9938, 10063, 9948, 10073, 85)

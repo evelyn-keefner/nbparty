@@ -1,0 +1,15 @@
+@fast
+@var this.x = x
+@var this.y = y
+@var this.z = z
+@var this.stages = stages
+@var this.neutral_stage = neutral_stage
+
+@var this.players = String[]
+@var this.current_stage = nbparty::neutral_stage
+@var this.current_stage_blocks = Block[]
+@var this.round = 0
+@var this.running_time = 5.0
+@var this.game_active = false
+@var this.start_game_check = false
+@var this.times_start_pressed = 0

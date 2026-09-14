@@ -1,0 +1,5 @@
+@fast
+
+@var nbparty::stages = nbparty::Stage[]
+
+@var nbparty::stages.append(nbparty::Stage(9938, 10063, 9948, 10073, 88))

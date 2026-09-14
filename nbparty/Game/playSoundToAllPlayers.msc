@@ -1,0 +1,6 @@
+# method playSoundToAllPlayers(String sound, String volume, String pitch)
+@fast
+
+@for String player_name in this.players
+    @bypass /playsound {{sound}} master {{player_name}} ~ ~ ~ {{volume}} {{pitch}}
+@done 
