@@ -13,11 +13,6 @@
 @for Int i in list::range(0, (this.z2 - this.z1) + 1)
     @var currentBlock = Block((this.x1 - 1), this.y, (this.z1 + i), "theta")
     @if (!currentBlock.isEmpty())
-        @var this.used_blocks.append(currentBlock.getBlockType())
+        @var this.used_blocks.append(currentBlock.getBlockType().toLowerCase())
     @fi 
 @done
-
-# @player [nbparty] listing blocks in used_blocks
-# @for String used_block in this.used_blocks
-    # @player Used block: {{used_block}}
-# @done

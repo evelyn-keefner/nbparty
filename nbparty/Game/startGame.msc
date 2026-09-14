@@ -1,30 +1,3 @@
-# method: Game.startGame()
-        # game loads neutral stage
-        # random stage added
-        # countdown at start
-        # color immediately chosen (maybe walls on the side that show the block ? definitely put it in player hotbar)
-        # wait for running_time time (have indicator somewhere on player screen)
-        # remove all blocks except chosen block
-        # wait like 3 seconds 
-        # 
-        # loop:
-        # update round #
-        # random stage added 
-        # wait 5 seconds maybe for players to run around on new stage
-        # choose random block from stage
-        # wait for running_time time
-        # remove all blocks exception chosen block
-        # wait 3 seconds
-        # 
-        # maybe time decrease every 5 rounds ?
-        # in original game people die on the border from 1.5 to 1 second
-        # decreases in increments of 0.5
-        # just make stage 99x99 to stay within list limit
-        # start at 5 seconds to choose? changing scaling later is easy
-        # game should become impossible and go until only 1 player is left
-        # constantly polling for player death status might be laggy but would need to do so near the end to see who really won
-        # otherwise too many ties
-
 @if (!this.beginCountdown())
     @if (this.times_start_pressed % 2 != 0)
         @var this.playSoundToAllPlayers("minecraft:entity.villager.hurt", "1.0", "1.27")
@@ -37,11 +10,42 @@
 @var this.messageAllPlayers("[Not Block Party] Start!")
 
 @var this.game_active = true
-@var this.newRandomStage()
-@delay 5s
-@var this.messageAllPlayers("The game is over now")
-@var this.resetStage()
-@var this.game_active = false
 
-@var this.players.clear()
-@var this.start_game_check = false
+# in theory last round never gets reached
+@for Int i in list::range(1, 6)
+    # Teleport players & load neutral stage
+    # TODO teleport players
+    @var this.resetStage()
+    @delay 3s
+
+    # update round #
+    @var this.round += 1
+    # update players about how long they will have to run to block 
+    @define Boolean round_overflow_check = this.informPlayersOfRoundTime()
+    @if !round_overflow_check
+        # end game early, round went somewhere it wasn't supposed to
+        @var this.messageAllPlayers("[Not Block Party] You reached the round limit. Ending game early. Please tell me where I messed up.")
+        @var this.endGame()
+        @return
+    @fi
+
+    # chooses new random stage, pastes it to main area, and adds blocks in stage to a Block[] list
+    @var this.newRandomStage()
+    # time you get to run around on the random stage before getting a block
+    @var this.waitForBlock()
+    # choose random block and set player hotbar
+    @var this.chooseRandomBlock()
+    # changes based on round time, there was an earlier check that should end game early if on a theoretically impossible round
+    @var this.waitForDisappearingBlock()
+
+    @var this.removeAllBlocksExceptChosen()
+    @delay 5s
+
+    # temporary
+    @var this.setAllPlayerHotbars("minecraft:air")
+
+    # TODO Detect player deaths, choose winner, end game.
+@done
+
+@var this.endGame()
+@return

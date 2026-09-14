@@ -1,0 +1,7 @@
+# method stopSoundsForAllPlayers()
+@fast
+
+@for String player_name in this.players
+    @bypass /stopsound {{player_name}} * # INCLUDE NAME OF SOUNDS, UNSURE WHAT SOUNDS THERE WILL BE YET
+    @bypass /stopsound {{player_name}} * # INCLUDE NAME OF SOUNDS, UNSURE WHAT SOUNDS THERE WILL BE YET
+@done 

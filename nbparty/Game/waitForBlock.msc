@@ -1,0 +1,4 @@
+# method waitForBlock()
+
+@var this.stopSoundsForAllPlayers()
+@delay 5s

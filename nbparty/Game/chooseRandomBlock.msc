@@ -1,0 +1,5 @@
+@fast
+
+@var this.current_stage.chooseRandomBlock()
+
+@var this.setAllPlayerHotbars(this.current_stage.chosen_block)

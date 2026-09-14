@@ -1,0 +1,17 @@
+# method Boolean informPlayersOfRoundTime
+@fast
+
+@define Float roundTimeInSeconds = 0.0
+@define Int delayTimeInNumberOfQuarterSeconds = this.getDelayTimeFromRound()
+
+@if delayTimeInNumberOfQuarterSeconds == -1
+    @return false
+@fi
+
+@for Int i in list::range(0, delayTimeInNumberOfQuarterSeconds)
+    @var roundTimeInSeconds += 0.25
+@done
+
+@var this.messageAllPlayers("Time for round {{this.round}}: {{roundTimeInSeconds}} seconds")
+
+@return true

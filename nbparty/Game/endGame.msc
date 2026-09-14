@@ -1,1 +1,8 @@
 @fast
+@var this.messageAllPlayers("The game is over now")
+@var this.resetStage()
+@var this.game_active = false
+@var this.round = 0
+
+@var this.players.clear()
+@var this.start_game_check = false

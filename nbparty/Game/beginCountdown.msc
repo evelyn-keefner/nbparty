@@ -39,7 +39,7 @@
 
 
 @if this.start_game_check
-    @delay 1s
+
 @else
     @var this.times_start_pressed += 1
     @return false

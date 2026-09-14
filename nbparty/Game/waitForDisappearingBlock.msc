@@ -1,0 +1,6 @@
+@define Int numberOfQuarterSeconds = this.getDelayTimeFromRound()
+
+@for Int i in list::range(0, numberOfQuarterSeconds)
+    # 5t = 0.25s
+    @delay 5
+@done
