@@ -6,6 +6,7 @@
 @player [nbparty] initializing neutral stage
 @var nbparty::initNeutralStage()
 
+# game should be initialized last as it relies on initStages() and initNeutralStage()
 @player [nbparty] initializing game object
 @var nbparty::initGame()
 

@@ -1,4 +1,5 @@
 @namespace nbparty
+    # Persistant Objects (Created on __init__)
     Game currentGame
     Stage[] stages
     Stage neutral_stage
@@ -25,81 +26,67 @@
         Int z2
         Int y
 
-        # used_blocks created in constructor, on a line in west side of stage, on the north side, all blocks used in the stage are placed
-        # at coordinates (x1 - 1) and looping over z values until hitting air
+        # used_blocks built from line of blocks physically placed in world next to stage on the (x1 - 1) row spanning z1 to z2
         String[] used_blocks
 
-        # the block that stays when timer runs down
+        # randomization is done in Stage and not Game, block chosen here
         String chosen_block
 
+        # Default constructor
         Stage(Int x1, Int z1, Int x2, Int z2, Int y)
         
-        # chooses and reutrns a random block from the stage
+        # Sets chosen_block to random block in used_blocks
         chooseRandomBlock()
-
     @endclass
 
     @class Game
         # constructor variables 
-        # The coordinate used for the clone command
+        # First corner (used for /clone command)
         Int x
         Int y
         Int z
-        # opposite end of stage on SE corner for /fill replace command
+        # opposite end of playable area on SE corner for /fill replace command
         Int xend
         Int yend
         Int zend
-        # list of all possible stages
+
         Stage[] stages
-        # default neutral stage to return game to
         Stage neutral_stage
 
         # game variables
         String[] players
-        # needed for chooseRandomBlock() every stage has different blocks
+        # current randomly selected stage
         Stage current_stage
-        # when a stage is cloned onto the main stage, need to loop over every block to get a Block list to be able to remove them
-        # I was thinking of not having the blocks disappear and maybe they just turn into a death block but it's more fun to have the blocks removed and the player fall into lava
+        # round # 
         Int round
-        # time players have after block is chosen to get to block
+        # bool to prevent players from starting multiple games
         Boolean game_active
+        # start_game_check & times_start_pressed used for start cancel logic in beginCountdown()
         Boolean start_game_check
         Int times_start_pressed
-
+        
+        # Default constructor
         Game(Int x, Int y, Int z, Int xend, Int yend, Int zend, Stage[] stages, Stage neutral_stage)
 
+        # Performing actions on every player in the game
         messageAllPlayers(String message)
         playSoundToAllPlayers(String sound, String volume, String pitch)
         stopSoundsForAllPlayers()
         setAllPlayerHotbars(String block)
 
-        # returns true if start not cancelled, false otherwise
-        Boolean beginCountdown()
-
-        # clones neutral stage over main stage
-        resetStage()
-        # chooses a random stage from list then clones it to the play area & loads Block list into current_stage_blocks
-        newRandomStage()
-
-        # returns delay to stand on chosen block as an Integer that represents the number of quarter seconds to wait. 0.25s or 5t
-        Int getDelayTimeFromRound()
-
         # handles main game loop and calls literally every other function if debugging or trying to figure out how my terrible code works start here
         startGame()
 
-        # returns if getDelayTimeFromRound() fails returning -1 and ending the game if this happens
+        # startGame() functions
+        Boolean beginCountdown()
+        resetStage()
+        newRandomStage()
+        Int getDelayTimeFromRound()
         Boolean informPlayersOfRoundTime()
-
-        # time in the game when players are waiting for block to be chosen, and are getting a feel for the stage. 
         waitForBlock()
-
         chooseRandomBlock()
-
         waitForDisappearingBlock()
-
         removeAllBlocksExceptChosen()
-
-        # triggered in startGame when game ends, resets everything to default
         endGame()
 
     @endclass
