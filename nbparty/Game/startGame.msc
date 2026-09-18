@@ -45,6 +45,7 @@
     # changes based on round time, there was an earlier check that should end game early if on a theoretically impossible round
     @var this.waitForDisappearingBlock()
 
+
     @var this.removeAllBlocksExceptChosen()
     @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.infect", "1.0", "1.0")
     @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.destroy_egg", "1.0", "1.0")
@@ -54,6 +55,7 @@
     @var this.setAllPlayerHotbars("minecraft:air")
 
     # TODO Detect player deaths, choose winner, end game.
+    @var this.countStagesPassed()
 @done
 
 @var this.endGame()
