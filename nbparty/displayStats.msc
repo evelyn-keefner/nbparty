@@ -4,3 +4,4 @@
 @player [Not Block Party] --- Your Stats ---
 @player [Not Block Party] Deaths: {{nbparty::deaths[player]}}
 @player [Not Block Party] Stages Passed: {{nbparty::stages_passed[player]}}
+@player [Not Block Party] Wins: {{nbparty::wins[player]}}
