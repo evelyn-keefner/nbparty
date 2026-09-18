@@ -1,5 +1,7 @@
 @fast
 
 @for String player_name in this.players
-    @var nbparty::stages_passed[Player(player_name)] += 1
+    @if this.playableArea.containsPlayer(Player(player_name))
+        @var nbparty::stages_passed[Player(player_name)] += 1
+    @fi
 @done

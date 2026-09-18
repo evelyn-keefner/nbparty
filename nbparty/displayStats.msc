@@ -1,0 +1,6 @@
+@fast
+
+@bypass /playsound minecraft:block.note_block.pling master {{player.string()}} ~ ~ ~ 1.0 1.0
+@player [Not Block Party] --- Your Stats ---
+@player [Not Block Party] Deaths: {{nbparty::deaths[player]}}
+@player [Not Block Party] Stages Passed: {{nbparty::stages_passed[player]}}
