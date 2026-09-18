@@ -12,7 +12,7 @@
 @var this.game_active = true
 
 # in theory last round never gets reached
-@for Int i in list::range(1, 6)
+@for Int i in list::range(1, 5)
     # Teleport players & load neutral stage
     # TODO teleport players
     @var this.resetStage()

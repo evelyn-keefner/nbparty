@@ -2,5 +2,6 @@
 
 @var nbparty::stages = nbparty::Stage[]
 
-@var nbparty::stages.append(nbparty::Stage(9938, 10063, 9948, 10073, 88))
-@var nbparty::stages.append(nbparty::Stage(9938, 10063, 9948, 10073, 91))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 89))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 92))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 95))
