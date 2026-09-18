@@ -9,4 +9,10 @@
     @done
 
     @var this.players.remove(removeIndex)
+
+    @if this.players.length() == 0
+    @var this.messageAllPlayers("[Not Block Partu] {{player_name}} winsssssssssssssssssssssssss")
+    @var nbparty::wins[Player(player_name)] += 1
+    @var this.endGame()
+    @fi
 @fi
