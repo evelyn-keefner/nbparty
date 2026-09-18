@@ -1,0 +1,14 @@
+# method determineEvilRound()
+@fast
+@if (!this.evil_mode)
+    @return
+@else
+    @define Double evil_rng = math::randomDouble()
+    @if (evil_rng <= 0.3)
+        @var this.evil_round = true
+        @var this.messagePlayersOnStage("&k&0---&r&l&4EVIL ROUND&k&0---")
+        @var this.playSoundToPlayersOnStage("minecraft:entity.ender_dragon.ambient", "0.5", "1.0")
+    @else
+        @var this.evil_round = false
+    @fi
+@fi

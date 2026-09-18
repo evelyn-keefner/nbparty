@@ -3,6 +3,9 @@
 @player [nbparty] initializing stages
 @var nbparty::initStages()
 
+@player [nbparty] initializing evil stages
+@var nbparty::initEvilStages()
+
 @player [nbparty] initializing neutral stage
 @var nbparty::initNeutralStage()
 

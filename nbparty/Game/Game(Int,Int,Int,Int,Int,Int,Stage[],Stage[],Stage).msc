@@ -6,6 +6,7 @@
 @var this.yend = yend
 @var this.zend = zend
 @var this.stages = stages
+@var this.evil_stages = evil_stages
 @var this.neutral_stage = neutral_stage
 
 @var this.players = String[]
@@ -14,3 +15,6 @@
 @var this.game_active = false
 @var this.start_game_check = false
 @var this.times_start_pressed = 0
+
+@var this.evil_mode = false
+@var this.evil_round = false

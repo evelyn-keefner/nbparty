@@ -2,37 +2,45 @@
 # returns how many 5t intervals to wait. 0.25 seconds
 
 # ok i know if statements are evil but i want the control over every round and exact timing changes
-@if (this.round >= 0 && this.round <= 3)
+# @if (this.round >= 0 && this.round <= 3)
     # 5 seconds
-    @return 20
-@elseif (this.round >= 4 && this.round <= 6)
+    # @return 20
+# @elseif (this.round >= 4 && this.round <= 6)
     # 4.5 seconds
-    @return 18
-@elseif (this.round >= 7 && this.round <= 9)
+    # @return 18
+# @elseif (this.round >= 7 && this.round <= 9)
     # 4 seconds
-    @return 16
-@elseif (this.round >= 10 && this.round <= 12)
+    # @return 16
+# @elseif (this.round >= 10 && this.round <= 12)
     # 3.5 seconds
-    @return 14
-@elseif (this.round >= 13 && this.round <= 15)
+    # @return 14
+# @elseif (this.round >= 13 && this.round <= 15)
     # 3 seconds
-    @return 12
-@elseif (this.round >= 16 && this.round <= 18)
+    # 3@return 12
+# @elseif (this.round >= 16 && this.round <= 18)
     # 2.5 seconds
-    @return 10
-@elseif (this.round >= 19 && this.round <= 21)
+    # @return 10
+# @elseif (this.round >= 19 && this.round <= 21)
     # 2 seconds 
-    @return 8
-@elseif (this.round >= 22 && this.round <= 24)
+    # @return 8
+# 3@elseif (this.round >= 22 && this.round <= 24)
     # 1.5 seconds
-    @return 6
-@elseif (this.round >= 25 && this.round <= 27)
+    # @return 6
+# @elseif (this.round >= 25 && this.round <= 27)
+    # 1 second
+    # @return 4
+# @elseif (this.round >= 28 && this.round <= 30)
+    # 0.5 seconds
+    # @return 2
+# @else
+    # MAXIMUM ROUND FOR THIS ITERATION IS: 30
+    # @return -1
+# @fi
+
+@if (this.round >= 0 && this.round <= 3)
     # 1 second
     @return 4
-@elseif (this.round >= 28 && this.round <= 30)
+@elseif (this.round >= 4 && this.round <= 6)
     # 0.5 seconds
     @return 2
-@else
-    # MAXIMUM ROUND FOR THIS ITERATION IS: 30
-    @return -1
 @fi

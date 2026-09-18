@@ -2,6 +2,7 @@
 
 @var nbparty::stages = nbparty::Stage[]
 
-@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 89))
-@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 92))
-@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 95))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 89, "&l&athe glob", "&2goomyii"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 92, "&l&aIt's okay that this exists", "&2goomyii, &2hybyrn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 95, "&l&7the glob pt. 2", "&1the microphones"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 98, "&l&o&0trust it", "&2MeddleLyn, &2hybyrn"))

@@ -2,21 +2,25 @@
     # Persistant Objects (Created on __init__)
     Game currentGame
     Stage[] stages
+    Stage[] evil_stages
     Stage neutral_stage
 
     # setup functions (manually edit before running)
     __init__()
     initStages()
+    initEvilStages()
     initNeutralStage()
     initGame()
 
     # interact scripts
     join(Player player)
     start(Player player)
+    evil_mode(Player player)
 
     # interact functions (interact script implementations)
     joinGame(Player player)
     startGame(Player player)
+    evil_mode_toggle(Player player)
 
     @class Stage
         # x1, z1 will be on NW side
@@ -25,6 +29,8 @@
         Int x2
         Int z2
         Int y
+        String stage_name
+        String creator_names
 
         # used_blocks built from line of blocks physically placed in world next to stage on the (x1 - 1) row spanning z1 to z2
         String[] used_blocks
@@ -34,6 +40,7 @@
 
         # Default constructor
         Stage(Int x1, Int z1, Int x2, Int z2, Int y)
+        Stage(Int x1, Int z1, Int x2, Int z2, Int y, String stage_name, String creator_names)
         
         # Sets chosen_block to random block in used_blocks
         chooseRandomBlock()
@@ -51,6 +58,7 @@
         Int zend
 
         Stage[] stages
+        Stage[] evil_stages
         Stage neutral_stage
 
         # game variables
@@ -64,13 +72,18 @@
         # start_game_check & times_start_pressed used for start cancel logic in beginCountdown()
         Boolean start_game_check
         Int times_start_pressed
+
+        Boolean evil_mode
+        Boolean evil_round
         
         # Default constructor
-        Game(Int x, Int y, Int z, Int xend, Int yend, Int zend, Stage[] stages, Stage neutral_stage)
+        Game(Int x, Int y, Int z, Int xend, Int yend, Int zend, Stage[] stages, Stage[] evil_stages, Stage neutral_stage)
 
         # Performing actions on every player in the game
         messageAllPlayers(String message)
+        messagePlayersOnStage(String message)
         playSoundToAllPlayers(String sound, String volume, String pitch)
+        playSoundToPlayersOnStage(String sound, String volume, String pitch)
         stopSoundsForAllPlayers()
         setAllPlayerHotbars(String block)
 
@@ -79,8 +92,11 @@
 
         # startGame() functions
         Boolean beginCountdown()
+        teleportPlayersToStage()
         resetStage()
+        determineEvilRound()
         newRandomStage()
+        displayStageNameAndCreator()
         Int getDelayTimeFromRound()
         Boolean informPlayersOfRoundTime()
         waitForBlock()

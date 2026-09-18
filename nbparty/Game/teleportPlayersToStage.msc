@@ -1,0 +1,5 @@
+# method teleportPlayersToStage()
+
+@for String player in this.players
+    @bypass /tp {{player}} {{math::random(Double(this.x), Double(this.xend))}} {{this.y + 1}} {{math::random(Double(this.z), Double(this.zend))}}
+@done

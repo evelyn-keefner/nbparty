@@ -1,0 +1,7 @@
+# method displayStageNameAndCreator()
+@var this.messagePlayersOnStage("&m&8----------------------------")
+@var this.messagePlayersOnStage("{{this.current_stage.stage_name}}")
+@var this.messagePlayersOnStage("{{this.current_stage.creator_names}}")
+@var this.messagePlayersOnStage("&m&8----------------------------")
+
+# @var this.messagePlayersOnStage("{{this.current_stage.stage_name}} &rby {{this.current_stage.creator_names}}")

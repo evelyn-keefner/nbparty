@@ -12,6 +12,6 @@
     @var roundTimeInSeconds += 0.25
 @done
 
-@var this.messageAllPlayers("Time for round {{this.round}}: {{roundTimeInSeconds}} seconds")
+@var this.messagePlayersOnStage("[Not Block Party] Round {{this.round}}: {{roundTimeInSeconds}} seconds")
 
 @return true

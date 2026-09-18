@@ -2,7 +2,12 @@
 @fast 
 
 @var this.stages.shuffle()
-@var this.current_stage = this.stages[0]
+@if (!this.evil_round)
+    @var this.current_stage = this.stages[0]
+@else
+    @var this.evil_stages.shuffle()
+    @var this.current_stage = this.evil_stages[0]
+@fi
 
 @define Int x1 = this.current_stage.x1
 @define Int z1 = this.current_stage.z1

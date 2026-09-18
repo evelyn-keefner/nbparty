@@ -8,8 +8,11 @@
 
 @var this.playSoundToAllPlayers("minecraft:entity.experience_orb.pickup", "1.0", "1.0")
 @var this.messageAllPlayers("[Not Block Party] Start!")
+@var this.teleportPlayersToStage()
 
 @var this.game_active = true
+
+@var this.evil_round = false
 
 # in theory last round never gets reached
 @for Int i in list::range(1, 5)
@@ -30,15 +33,21 @@
     @fi
 
     # chooses new random stage, pastes it to main area, and adds blocks in stage to a Block[] list
+    @var this.determineEvilRound()
     @var this.newRandomStage()
+    @var this.displayStageNameAndCreator()
     # time you get to run around on the random stage before getting a block
     @var this.waitForBlock()
     # choose random block and set player hotbar
     @var this.chooseRandomBlock()
+    @var this.playSoundToPlayersOnStage("minecraft:entity.experience_orb.pickup", "1.0", "1.0")
+    @var this.playSoundToPlayersOnStage("minecraft:block.note_block.bell", "1.0", "1.0")
     # changes based on round time, there was an earlier check that should end game early if on a theoretically impossible round
     @var this.waitForDisappearingBlock()
 
     @var this.removeAllBlocksExceptChosen()
+    @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.infect", "1.0", "1.0")
+    @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.destroy_egg", "1.0", "1.0")
     @delay 5s
 
     # temporary

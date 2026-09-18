@@ -1,0 +1,5 @@
+@fast
+
+@var nbparty::evil_stages = nbparty::Stage[]
+
+@var nbparty::evil_stages.append(nbparty::Stage(9995, 9983, 10026, 10014, 85, "&l&6SANDSTONE", "&4the evil"))
