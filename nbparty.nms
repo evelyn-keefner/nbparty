@@ -6,6 +6,7 @@
     Stage neutral_stage
     relative Int deaths
     relative Int stages_passed
+    relative Int wins
 
     # setup functions (manually edit before running)
     __init__()
@@ -24,6 +25,7 @@
     joinGame(Player player)
     startGame(Player player)
     evil_mode_toggle(Player player)
+    displayStats(Player player)
 
     @class Stage
         # x1, z1 will be on NW side
@@ -78,6 +80,9 @@
 
         Boolean evil_mode
         Boolean evil_round
+
+        #idk where to put this
+        Region playableArea
         
         # Default constructor
         Game(Int x, Int y, Int z, Int xend, Int yend, Int zend, Stage[] stages, Stage[] evil_stages, Stage neutral_stage)
