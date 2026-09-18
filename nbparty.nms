@@ -1,9 +1,11 @@
 @namespace nbparty
-    # Persistant Objects (Created on __init__)
+    # Persistent Objects (Created on __init__)
     Game currentGame
     Stage[] stages
     Stage[] evil_stages
     Stage neutral_stage
+    relative Int deaths
+    relative Int stages_passed
 
     # setup functions (manually edit before running)
     __init__()
@@ -16,6 +18,7 @@
     join(Player player)
     start(Player player)
     evil_mode(Player player)
+    stats(Player player)
 
     # interact functions (interact script implementations)
     joinGame(Player player)
@@ -86,6 +89,7 @@
         playSoundToPlayersOnStage(String sound, String volume, String pitch)
         stopSoundsForAllPlayers()
         setAllPlayerHotbars(String block)
+        eliminatePlayer(String player_name)
 
         # handles main game loop and calls literally every other function if debugging or trying to figure out how my terrible code works start here
         startGame()
@@ -104,6 +108,7 @@
         waitForDisappearingBlock()
         removeAllBlocksExceptChosen()
         endGame()
+        countStagesPassed()
 
     @endclass
 
