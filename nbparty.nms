@@ -24,6 +24,7 @@
     joinGame(Player player)
     startGame(Player player)
     evil_mode_toggle(Player player)
+    displayStats(Player player)
 
     @class Stage
         # x1, z1 will be on NW side
@@ -63,6 +64,8 @@
         Stage[] stages
         Stage[] evil_stages
         Stage neutral_stage
+
+        Region playableArea
 
         # game variables
         String[] players
