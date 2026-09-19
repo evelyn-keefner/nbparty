@@ -1,7 +1,4 @@
 # method: Game.messageAllPlayers(String message)
 @fast
 
-@for String player_name in this.players
-    @define Player temp = Player(player_name)
-    @var temp.sendMessage(message)
-@done 
+@bypass /tellraw @a[x={{this.x}},y={{this.y}},z={{this.z}},distance=..64] {{slytools::convertTextToTellraw(message)}}

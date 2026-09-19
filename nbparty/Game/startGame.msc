@@ -15,7 +15,10 @@
 @var this.evil_round = false
 
 # in theory last round never gets reached
-@for Int i in list::range(1, 5)
+@for Int i in list::range(1, 1000)
+    @if !this.game_active
+        @return
+    @fi
     # Teleport players & load neutral stage
     # TODO teleport players
     @var this.resetStage()

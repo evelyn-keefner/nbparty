@@ -9,7 +9,7 @@
 @var this.evil_stages = evil_stages
 @var this.neutral_stage = neutral_stage
 
-@var this.playableArea = Region(x, y, z, xend, y + 16, zend, "theta");
+@var this.playableArea = Region(x, y, z, xend, y + 16, zend, "theta")
 
 @var this.players = String[]
 @var this.current_stage = nbparty::neutral_stage
