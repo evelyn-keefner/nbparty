@@ -8,10 +8,14 @@
         @var nbparty::currentGame.players.remove(removeIndex)
         @bypass /playsound item.armor.equip_generic master {{player_name}} ~ ~ ~ 1.0 0.85
         @player [Not Block Party] Successfully left the game!
+        @var nbparty::currentGame.addTextDisplayToListFromJoinSign(block)
+        @var nbparty::currentGame.updatePlayerListDisplays()
     @else
         @var nbparty::currentGame.players.append(player_name)
         @bypass /playsound item.armor.equip_generic master {{player_name}} ~ ~ ~ 1.0 0.85
         @player [Not Block Party] Successfully joined the game! To leave, click sign again.
+        @var nbparty::currentGame.addTextDisplayToListFromJoinSign(block)
+        @var nbparty::currentGame.updatePlayerListDisplays()
     @fi
 @else
     @player [Not Block Party] Cannot join game while game is in progress!

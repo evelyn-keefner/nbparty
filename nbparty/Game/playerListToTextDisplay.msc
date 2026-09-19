@@ -1,0 +1,12 @@
+# method String playerListToTextDisplay()
+
+@define String text_display_string = ""
+
+@for Int i in list::range(0, this.players.length())
+    @var text_display_string += this.players[i]
+    @if i != this.players.length() - 1
+        @var text_display_string += "\n"
+    @fi
+@done
+
+@return text_display_string

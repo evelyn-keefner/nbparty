@@ -1,2 +1,2 @@
 # stats(Player player)
-@var nbparty::displayStats(player)
+@var nbparty::displayStats(block, player)

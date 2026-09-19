@@ -1,0 +1,8 @@
+# method checkForWinner(String player_name)
+@fast
+
+@if this.players.length() == 0
+    @var this.messageAllPlayers("[Not Block Party] {{player_name}} winsssssssssssssssssssssssss")
+    @var nbparty::wins[Player(player_name)] += 1
+    @var this.endGame()
+@fi

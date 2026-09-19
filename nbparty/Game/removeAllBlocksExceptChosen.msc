@@ -3,6 +3,7 @@
 # @bypass /clone {{this.current_stage.x1}} {{this.current_stage.y}} {{this.current_stage.z1}} {{this.current_stage.x2}} {{this.current_stage.y}} {{this.current_stage.z2}} {{this.x}} {{this.y}} {{this.z}} filtered {{this.current_stage.chosen_block}}
 # @bypass /fill {{this.x}} {{this.y}} {{this.z}} {{this.xend}} {{this.yend}} {{this.zend}} minecraft:air replace minecraft:barrier
 
-@bypass /fill {{this.x}} {{this.y}} {{this.z}} {{this.xend}} {{this.yend}} {{this.zend}} minecraft:air
+# second coordinate uses the same y value, stage is flat
+@bypass /fill {{this.x}} {{this.y}} {{this.z}} {{this.xend}} {{this.y}} {{this.zend}} minecraft:air
 @bypass /clone {{this.current_stage.x1}} {{this.current_stage.y}} {{this.current_stage.z1}} {{this.current_stage.x2}} {{this.current_stage.y}} {{this.current_stage.z2}} {{this.x}} {{this.y}} {{this.z}} filtered {{this.current_stage.chosen_block}}
 

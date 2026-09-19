@@ -1,3 +1,3 @@
 @fast
 
-@var nbparty::currentGame = nbparty::Game(9997, 87, 10060, 10028, 87, 10091, nbparty::stages, nbparty::evil_stages, nbparty::neutral_stage)
+@var nbparty::currentGame = nbparty::Game(9997, 87, 10060, 10028, 97, 10091, nbparty::stages, nbparty::evil_stages, nbparty::neutral_stage)

@@ -1,4 +1,4 @@
 # method messagePlayersOnStage(String message)
 @fast
 
-@bypass /tellraw @a[x={{this.x}},y={{this.y - 32}},z={{this.z}},dx=32,dy=64,dz=32] {{slytools::convertTextToTellraw(message)}}
+@bypass /tellraw @a[x={{this.x}},y={{this.y - 32}},z={{this.z}},dx=32,dy={{(this.yend - this.y) + 32}},dz=32] {{slytools::convertTextToTellraw(message)}}

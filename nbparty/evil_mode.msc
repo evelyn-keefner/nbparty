@@ -1,2 +1,2 @@
 # join(Player player)
-@var nbparty::evil_mode_toggle(player)
+@var nbparty::evil_mode_toggle(block, player)

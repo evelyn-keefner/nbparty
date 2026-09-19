@@ -1,2 +1,2 @@
 # start(Player player)
-@var nbparty::startGame(player)
+@var nbparty::startGame(block, player)

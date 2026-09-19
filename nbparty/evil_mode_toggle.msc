@@ -1,7 +1,11 @@
 # join(Player player)
-@var nbparty::currentGame.evil_mode = !nbparty::currentGame.evil_mode
-@if (nbparty::currentGame.evil_mode)
-    @player [Not Block Party] &k&4-&r&l&4EVIL MODE ACTIVATED&r&k&4-
+@if nbparty::currentGame.game_active
+    @player [Not Block Party] There is a game currently running! Please wait until it is finished.
 @else
-    @player [Not Block Party] Evil mode deactivated
+    @var nbparty::currentGame.evil_mode = !nbparty::currentGame.evil_mode
+    @if (nbparty::currentGame.evil_mode)
+        @player [Not Block Party] &k&4-&r&l&4EVIL MODE ACTIVATED&r&k&4-
+    @else
+        @player [Not Block Party] Evil mode deactivated
+    @fi
 @fi

@@ -1,0 +1,8 @@
+@define String death_region_script_url = "https://paste.minr.org/agukaxagah"
+
+@command /rg delete nbparty_death_region
+@command //pos1 {{nbparty::currentGame.x}},{{nbparty::currentGame.y - 10}},{{nbparty::currentGame.z}}
+@command //pos2 {{nbparty::currentGame.xend}},{{nbparty::currentGame.y - 10}},{{nbparty::currentGame.zend}}
+# run in theta
+@command /rg define nbparty_death_region hybyrn
+@command /s i a Theta nbparty_death_region {{death_region_script_url}}

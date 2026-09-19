@@ -1,3 +1,3 @@
 # method messagePlayersOnStage(String message)
 @fast
-@bypass /execute as @a[x={{this.x}},y={{this.y - 32}},z={{this.z}},dx=32,dy=64,dz=32] at @s run playsound {{sound}} master @s ~ ~ ~ {{volume}} {{pitch}}
+@bypass /execute as @a[x={{this.x}},y={{this.y - 32}},z={{this.z}},dx=32,dy={{(this.yend - this.y) + 32}},dz=32] at @s run playsound {{sound}} master @s ~ ~ ~ {{volume}} {{pitch}}

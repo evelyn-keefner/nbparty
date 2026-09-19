@@ -15,17 +15,32 @@
     initNeutralStage()
     initGame()
 
+    # purely for reference, death region needs to be setup by admin
+    initAreas()
+
     # interact scripts
-    join(Player player)
-    start(Player player)
-    evil_mode(Player player)
-    stats(Player player)
+    join(Block block, Player player)
+    start(Block block, Player player)
+    evil_mode(Block block, Player player)
+    stats(Block block, Player player)
+    
+    # admin room
+    end(Block block, Player player)
 
     # interact functions (interact script implementations)
-    joinGame(Player player)
-    startGame(Player player)
-    evil_mode_toggle(Player player)
-    displayStats(Player player)
+    joinGame(Block block, Player player)
+    startGame(Block block, Player player)
+    evil_mode_toggle(Block block, Player player)
+    displayStats(Block block, Player player)
+
+    # admin room
+    endGame(Block block, Player player)
+
+    # area scripts
+    deathRegionArea(Player player)
+
+    # area functions
+    deathRegionImplementation(Player player)
 
     @class Stage
         # x1, z1 will be on NW side
@@ -57,7 +72,7 @@
         Int x
         Int y
         Int z
-        # opposite end of playable area on SE corner for /fill replace command
+        # opposite end of playable area on SE corner (include height of playable area)
         Int xend
         Int yend
         Int zend
@@ -66,7 +81,9 @@
         Stage[] evil_stages
         Stage neutral_stage
 
-        Region playableArea
+        # text displays 
+        Block[] join_signs
+        Entity[] text_displays
 
         # game variables
         String[] players
@@ -83,11 +100,13 @@
         Boolean evil_mode
         Boolean evil_round
 
-        #idk where to put this
-        Region playableArea
-        
         # Default constructor
         Game(Int x, Int y, Int z, Int xend, Int yend, Int zend, Stage[] stages, Stage[] evil_stages, Stage neutral_stage)
+
+        # text display 
+        addTextDisplayToListFromJoinSign(Block block)
+        updatePlayerListDisplays()
+        String playerListToTextDisplay()
 
         # Performing actions on every player in the game
         messageAllPlayers(String message)
@@ -97,6 +116,8 @@
         stopSoundsForAllPlayers()
         setAllPlayerHotbars(String block)
         eliminatePlayer(String player_name)
+        Boolean playerInPlayableArea(String player_name)
+        removePlayersOutsideOfPlayArea()
 
         # handles main game loop and calls literally every other function if debugging or trying to figure out how my terrible code works start here
         startGame()
@@ -114,6 +135,7 @@
         chooseRandomBlock()
         waitForDisappearingBlock()
         removeAllBlocksExceptChosen()
+        checkForWinner(String player_name)
         endGame()
         countStagesPassed()
 

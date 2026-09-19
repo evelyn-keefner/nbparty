@@ -1,0 +1,5 @@
+# method updatePlayerListDisplays()
+
+@for Entity text_display in this.text_displays
+    @bypass /data modify entity {{text_display.getUniqueId()}} text set value {"text":"{{this.playerListToTextDisplay()}}"}
+@done

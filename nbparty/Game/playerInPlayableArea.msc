@@ -1,0 +1,10 @@
+# Boolean playerInPlayableArea(String player_name)
+@fast
+
+@define Player player = Player(player_name)
+
+@if player == null
+    @return false
+@fi
+
+@return ((player.getX() <= this.xend) && (player.getX() >= this.x) && (player.getY() <= this.yend) && (player.getY() >= this.y) && (player.getZ() <= this.zend) && (player.getZ() >= this.z))

@@ -1,0 +1,6 @@
+@fast
+@define String player_name = player.string()
+@bypass /teleport {{player_name}} 9967 86 10065
+@if nbparty::currentGame.game_active
+    @var nbparty::currentGame.eliminatePlayer(player_name)
+@fi

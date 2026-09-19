@@ -42,6 +42,6 @@
     # 1 second
     @return 4
 @elseif (this.round >= 4 && this.round <= 1000)
-    # 0.5 seconds
-    @return 2
+    # 0.75 seconds
+    @return 3
 @fi

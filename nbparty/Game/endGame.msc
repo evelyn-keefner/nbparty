@@ -3,6 +3,12 @@
 @var this.resetStage()
 @var this.game_active = false
 @var this.round = 0
-
 @var this.players.clear()
+@var this.updatePlayerListDisplays()
+
+# adds a little delay to reset the stage again if scripts were running, delays being able to start another game by 5s
+@slow
+@delay 5s
+@fast
+@var this.resetStage()
 @var this.start_game_check = false

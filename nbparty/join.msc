@@ -1,2 +1,2 @@
 # join(Player player)
-@var nbparty::joinGame(player)
+@var nbparty::joinGame(block, player)

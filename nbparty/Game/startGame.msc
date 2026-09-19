@@ -1,3 +1,4 @@
+@fast
 @if (!this.beginCountdown())
     @if (this.times_start_pressed % 2 != 0)
         @var this.playSoundToAllPlayers("minecraft:entity.villager.hurt", "1.0", "1.27")
@@ -14,6 +15,7 @@
 
 @var this.evil_round = false
 
+
 # in theory last round never gets reached
 @for Int i in list::range(1, 1000)
     @if !this.game_active
@@ -22,7 +24,12 @@
     # Teleport players & load neutral stage
     # TODO teleport players
     @var this.resetStage()
+    @slow
     @delay 3s
+    @fast
+
+    # check if players are still in the game (if they are logged out)
+    @var this.removePlayersOutsideOfPlayArea()
 
     # update round #
     @var this.round += 1
@@ -52,7 +59,9 @@
     @var this.removeAllBlocksExceptChosen()
     @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.infect", "1.0", "1.0")
     @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.destroy_egg", "1.0", "1.0")
+    @slow
     @delay 5s
+    @fast
 
     # temporary
     @var this.setAllPlayerHotbars("minecraft:air")
