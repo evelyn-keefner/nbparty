@@ -3,45 +3,39 @@
 
 # ok i know if statements are evil but i want the control over every round and exact timing changes its ok pats
 # thanks goomy
-# @if (this.round >= 0 && this.round <= 3)
+@if (this.round >= 0 && this.round <= 3)
     # 5 seconds
-    # @return 20
-# @elseif (this.round >= 4 && this.round <= 6)
-    # 4.5 seconds
-    # @return 18
-# @elseif (this.round >= 7 && this.round <= 9)
+    @return 20
+@elseif (this.round >= 4 && this.round <= 6)
     # 4 seconds
-    # @return 16
-# @elseif (this.round >= 10 && this.round <= 12)
-    # 3.5 seconds
-    # @return 14
-# @elseif (this.round >= 13 && this.round <= 15)
+    @return 16
+@elseif (this.round >= 7 && this.round <= 9)
     # 3 seconds
-    # 3@return 12
-# @elseif (this.round >= 16 && this.round <= 18)
+    @return 12
+@elseif (this.round >= 10 && this.round <= 12)
     # 2.5 seconds
-    # @return 10
-# @elseif (this.round >= 19 && this.round <= 21)
-    # 2 seconds 
-    # @return 8
-# 3@elseif (this.round >= 22 && this.round <= 24)
+    @return 10
+@elseif (this.round >= 13 && this.round <= 15)
+    # 2 seconds
+    @return 8
+@elseif (this.round >= 16 && this.round <= 20)
     # 1.5 seconds
-    # @return 6
-# @elseif (this.round >= 25 && this.round <= 27)
+    @return 6
+@elseif (this.round >= 21 && this.round <= 25)
+    # 1 seconds
+    @return 4
+@elseif (this.round >= 26 && this.round <= 1000)
+    @return 2
+@else
+    # MAXIMUM ROUND FOR THIS ITERATION IS: 1000
+    @return -1
+@fi
+
+# testing
+# @if (this.round >= 0 && this.round <= 3)
     # 1 second
     # @return 4
-# @elseif (this.round >= 28 && this.round <= 30)
-    # 0.5 seconds
-    # @return 2
-# @else
-    # MAXIMUM ROUND FOR THIS ITERATION IS: 30
-    # @return -1
-# @fi
-
-@if (this.round >= 0 && this.round <= 3)
-    # 1 second
-    @return 4
-@elseif (this.round >= 4 && this.round <= 1000)
+# @elseif (this.round >= 4 && this.round <= 1000)
     # 0.75 seconds
-    @return 3
-@fi
+    # @return 3
+# @fi

@@ -6,3 +6,6 @@
 @var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 92, "&l&aIt's okay that this exists", "&2goomyii, &2hybyrn"))
 @var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 95, "&l&7the glob pt. 2", "&1the microphones"))
 @var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 98, "&l&o&0trust it", "&2MeddleLyn, &2hybyrn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 101, "&l&1stage .", "&2MeddleLyn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 104, "&l&2another stage .", "&2MeddleLyn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 107, "&l&5stageee.", "&2MeddleLyn"))

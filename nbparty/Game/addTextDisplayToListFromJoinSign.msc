@@ -5,5 +5,4 @@
     @bypass /minecraft:kill @e[x={{block.getX()}},y={{block.getY()}},z={{block.getZ()}},type=minecraft:text_display,limit=10,distance=..3]
     @bypass /summon text_display {{block.getX()}} {{block.getY() + 2}} {{block.getZ()}} {billboard:"center",text:["{{nbparty::currentGame.playerListToTextDisplay()}}"]}
     @var this.text_displays.append(Entity(block.getX(), (block.getY() + 2), block.getZ(), "theta"))
-    @player text_displays: {{this.text_displays}}
 @fi
