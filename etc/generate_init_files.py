@@ -1,7 +1,36 @@
 import os
-from colorama import Fore, Back, Style
 INIT_FILES = ["initStages.msc", "initEvilStages.msc"]
 
+ADMINS = [
+    "jasmine476",
+    "andrewforreal"
+]
+
+MODS = [
+    "kittycatelite",
+    "egabbac",
+    "zhar",
+    "facecat1"
+]
+
+GREENS = [
+    "goomyii",
+    "MeddleLyn",
+    "hybyrn",
+    "ssteppy",
+    "JM4s",
+    "rypho_",
+    "lefty³",
+    "noobgamerz",
+    "JK_Extreme",
+    "Solawr",
+    "natcrackers",
+    "Heeshh",
+    "AgentOtter",
+    "Xanthous7",
+    "boger704",
+    "SobbingGhost"
+]
 def clean_exit(code):
     print("Exiting...")
     exit(code)
@@ -169,129 +198,71 @@ def writeHeader(filename):
     f.write("\n")
     f.close()
 
-def getStyleCode():
-    print("Enter the character corresponding to text style. (Only first character will count)")
-    print("k: Obfuscated")
-    print("l: Bold")
-    print("m: Strikethrough")
-    print("n: Underline")
-    print("o: Italic")
-    print("Enter r or nothing for default text style.")
-    print()
-    style = input("Enter character here: ")
-
-    try:
-        if style[0] == "k":
-            style = "&k"
-        elif style[0] == "l":
-            style = "&l"
-        elif style[0] == "m":
-            style = "&m"
-        elif style[0] == "n":
-            style = "&n"
-        elif style[0] == "o":
-            style = "&o"
-        else:
-            # no if statement for r, same as default
-            style = ""
-    except:
-        style = ""
-
-    return style
-
-def getColorCode():
-    print("Enter the character corresponding to text color. (Only first character will count)")
-    print("0: Black")
-    print(Back.BLUE + "1: Dark Blue")
-    print(Back.GREEN + "2: Dark Green")
-    print(Back.CYAN + "3: Dark Aqua")
-    print(Back.RED + "4: Dark Red")
-    print(Back.MAGENTA + "5: Dark Purple")
-    print(Fore.BLACK + Back.YELLOW + "6: Gold")
-    print(Fore.WHITE + Back.LIGHTBLACK_EX + "7: Gray")
-    print(Back.LIGHTBLACK_EX + "8: Dark Gray")
-    print(Back.LIGHTBLUE_EX + "9: Blue")
-    print(Fore.BLACK + Back.LIGHTGREEN_EX + "a: Green")
-    print(Back.LIGHTCYAN_EX + "b: Aqua")
-    print(Fore.WHITE + Back.LIGHTRED_EX + "c: Red")
-    print(Back.LIGHTMAGENTA_EX + "d: Light Purple")
-    print(Fore.BLACK + Back.LIGHTYELLOW_EX + "e: Yellow")
-    print(Style.RESET_ALL + "Enter f or nothing for default white text color.")
-    print()
-    color = input("Enter character here: ")
-
-    try:
-        if color[0] == "0":
-            color = "&0"
-        elif color[0] == "1":
-            color = "&1"
-        elif color[0] == "2":
-            color = "&2"
-        elif color[0] == "3":
-            color = "&3"
-        elif color[0] == "4":
-            color = "&4"
-        elif color[0] == "5":
-            color = "&5"
-        elif color[0] == "6":
-            color = "&6"
-        elif color[0] == "7":
-            color = "&7"
-        elif color[0] == "8":
-            color = "&8"
-        elif color[0] == "9":
-            color = "&9"
-        elif color[0] == "a":
-            color = "&a"
-        elif color[0] == "b":
-            color = "&b"
-        elif color[0] == "c":
-            color = "&c"
-        elif color[0] == "d":
-            color = "&d"
-        elif color[0] == "e":
-            color = "&e"
-        else:
-            # no if statement for r, same as default
-            color = ""
-    except:
-        color = ""
-
-    return color
-
 def promptStageName(y):
-
+    os.system("cls||clear")
     print(f"Entering name information for the stage at y = {y}")
-    
+    print("Please include color codes or other flair.")
     print()
-    print("Which text style do you want for stage name?")
-    style_code = getStyleCode()
 
-    print()
-    print("Which color do you want for stage name?")
-    color_code = getColorCode()
+    name = input(f"Enter the name of the stage at y = {y}: ")
 
-    print()
-    name = input("Enter the name of the stage at y = {y}: ")
+    return name
 
-    return style_code + color_code + name
+def getPlayerNameWithCode(name):
+    if name in ADMINS:
+        return "&6" + name
 
-# TODO Make creator names just the colors of their ranks.
+    if name in MODS:
+        return "&2" + name
+
+    if name in GREENS:
+        return "&a" + name
+
+    return ""
+
+def getCreatorList(player_names):
+    if len(player_names) == 1:
+        return getPlayerNameWithCode(player_names[0])
+
+    creator_list = ""
+    for i, player_name in enumerate(player_names):
+        if i == len(player_names) - 1:
+            temp = getPlayerNameWithCode(player_name)
+            if temp == "":
+                return ""
+            creator_list += "and " + temp
+        elif i == len(player_names) - 2:
+            temp = getPlayerNameWithCode(player_name)
+            if temp == "":
+                return ""
+            creator_list += temp + " "
+        else:
+            temp = getPlayerNameWithCode(player_name)
+            if temp == "":
+                return ""
+            creator_list += temp + ", "
+    return creator_list
+
+# TODO multiple names
 def promptCreatorNames(y):
+    awaiting_input = True
+    os.system("cls||clear")
     print(f"Entering name information for the creators of the stage at y = {y}")
-        
+    print("Do not enter custom color codes or other flair. Name colors are done automatically.")
+    print("Enter names in the order you want them seperated with spaces. (Example: 'Chillers RyGamer1 Heeshh')")
     print()
-    print("Which text style do you want for stage creators names?")
-    style_code = getStyleCode()
+    while awaiting_input:
+        player_names = [
+            x for x in input(f"Enter the names of the creators at y = {y}: ").split()
+        ]
 
-    print()
-    print("Which color do you want for stage creator names?")
-    color_code = getColorCode()
-
-    print()
-    name = input("Enter the names of the creators at y = {y}: ")
-
-    return style_code + color_code + name
+        creator_list = getCreatorList(player_names)
+        if creator_list != "":
+            awaiting_input = False
+        else:
+            print("Name mispelled or not in script player list. Please check again or update the list.")
+            
+    return creator_list 
 
 def appendStages(filename, stage_data):
     f = openFileToAppendErrorChecked(filename)
@@ -327,11 +298,13 @@ def main():
     match initialPrompt():
         # append to stack
         case 1:
-            append_index = appendStackToFilePrompt();
+            append_index = appendStackToFilePrompt()
             if append_index == -1:
                 clean_exit(0)
 
             generateStackInitFile(INIT_FILES[append_index])
+            print("Completed.")
+            clean_exit(0)
 
         # delete file
         case 2:
@@ -349,17 +322,6 @@ def main():
         case _:
             print("initialPrompt returned a bad value.")
             clean_exit(1)
-    # TODO 
-    # - 1. Append to init file from stage stack
-    #       * prompts user for which file
-    #           - creates header if not there already
-    #           - prompts for # of stages in stack
-    #           - prompts for coordinates of bottom stack 
-    #           - prompts for # of blocks of air in between each stack
-    #               - for every stage line, prompts text style, then color, then either name or authors. User can click enter to go forward and type things themselves
-    # - 2. Delete init file
-    #       * prompts user for which file
-    # - 
 
 if (__name__ == "__main__"):
     main()
