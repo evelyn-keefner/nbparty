@@ -1,9 +1,11 @@
 import os
+
 INIT_FILES = ["initStages.msc", "initEvilStages.msc"]
 
 ADMINS = [
     "jasmine476",
-    "andrewforreal"
+    "andrewforreal",
+    "wavelyte"
 ]
 
 MODS = [
@@ -38,7 +40,7 @@ def clean_exit(code):
 
 def openFileToReadErrorChecked(filename:str):
     try:
-        f = open(filename, "r")
+        f = open(filename, "r", encoding="utf-8")
     except:
         print(f"{filename} failed to open. Exiting...")
         exit(1)
@@ -46,7 +48,7 @@ def openFileToReadErrorChecked(filename:str):
 
 def openFileToWriteErrorChecked(filename:str):
     try:
-        f = open(filename, "w")
+        f = open(filename, "w", encoding="utf-8")
     except:
         print(f"{filename} failed to open. Exiting...")
         exit(1)
@@ -54,14 +56,14 @@ def openFileToWriteErrorChecked(filename:str):
 
 def openFileToAppendErrorChecked(filename:str):
     try:
-        f = open(filename, "a")
+        f = open(filename, "a", encoding="utf-8")
     except:
         print(f"{filename} failed to open. Exiting...")
         exit(1)
     return f
 
 def initialPrompt() -> int:
-    awaiting_input = True;
+    awaiting_input = True
     os.system('cls||clear')
     print("[nbparty]")
     print("\t1. Append a stack of stages to init file")
@@ -82,7 +84,7 @@ def initialPrompt() -> int:
     return choice
 
 def appendStackToFilePrompt() -> int:
-    awaiting_input = True;
+    awaiting_input = True
     os.system('cls||clear')
     print("[nbparty]")
     for i, init_file in enumerate(INIT_FILES):
@@ -246,7 +248,6 @@ def getCreatorList(player_names):
             creator_list += temp + ", "
     return creator_list
 
-# TODO multiple names
 def promptCreatorNames(y):
     awaiting_input = True
     os.system("cls||clear")
@@ -277,11 +278,13 @@ def appendStages(filename, stage_data):
 
         f.write(f"@var nbparty::stages.append(nbparty::Stage({x1}, {z1}, {x2}, {z2}, {y}, \"{stage_name}\", \"{creator_names}\"))\n")
 
+    f.close()
+
 def generateStackInitFile(filename):
     stage_data = promptStackInitFile()
 
     try:
-        f_check = open(filename)
+        f_check = open(filename, "r", encoding="utf-8")
         comment = f_check.readline()
         f_check.close()
 
