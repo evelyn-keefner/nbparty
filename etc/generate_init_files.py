@@ -20,7 +20,7 @@ GREENS = [
     "ssteppy",
     "JM4s",
     "rypho_",
-    "lefty³",
+    "lefty3",
     "noobgamerz",
     "JK_Extreme",
     "Solawr",
@@ -31,6 +31,7 @@ GREENS = [
     "boger704",
     "SobbingGhost"
 ]
+
 def clean_exit(code):
     print("Exiting...")
     exit(code)
@@ -216,6 +217,8 @@ def getPlayerNameWithCode(name):
         return "&2" + name
 
     if name in GREENS:
+        if name == "lefty3":
+            return "&alefty³"
         return "&a" + name
 
     return ""
