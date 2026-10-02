@@ -1,5 +1,6 @@
 @fast
 @define String player_name = player.string()
+# WHEREVER SPAWN IS. PROBABLY BETTER WAY TO DO THIS. WHAT HAPPENS WHEN THE PLAYER IS /KILLED?
 @bypass /teleport {{player_name}} 9967 86 10065
 @if nbparty::currentGame.game_active
     @var nbparty::currentGame.eliminatePlayer(player_name)

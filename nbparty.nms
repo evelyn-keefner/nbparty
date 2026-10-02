@@ -40,6 +40,7 @@
     deathRegionArea(Player player)
 
     # area functions
+    # update how the player is teleported back here
     deathRegionImplementation(Player player)
 
     @class Stage
