@@ -18,36 +18,31 @@
 
 # in theory last round never gets reached
 @for Int i in list::range(1, 1000)
+    # this is how loop is broken whenever game is ended by the last player being eliminated
     @if !this.game_active
         @return
     @fi
-    # Teleport players & load neutral stage
-    # TODO teleport players
-    @var this.resetStage()
-    @slow
-    @delay 3s
-    @fast
 
+    # WAITING PERIOD BEFORE ROUND STARTS
+    @var this.setAllPlayerHotbars("minecraft:air")
+    @var this.resetStage()
+    @var this.waitForRoundToStart()
+
+    # ROUND START PERIOD
     # check if players are still in the game (if they are logged out)
     @var this.removePlayersOutsideOfPlayArea()
-
     # update round #
     @var this.round += 1
     # update players about how long they will have to run to block 
-    @define Boolean round_overflow_check = this.informPlayersOfRoundTime()
-    @if !round_overflow_check
-        # end game early, round went somewhere it wasn't supposed to
-        @var this.messageAllPlayers("[Not Block Party] You reached the round limit. Ending game early. Please tell me where I messed up.")
-        @var this.endGame()
-        @return
-    @fi
-
+    @var this.informPlayersOfRoundTime()
     # chooses new random stage, pastes it to main area, and adds blocks in stage to a Block[] list
     @var this.determineEvilRound()
     @var this.newRandomStage()
     @var this.displayStageNameAndCreator()
     # time you get to run around on the random stage before getting a block
     @var this.waitForBlock()
+
+    # REACTION PERIOD
     # choose random block and set player hotbar
     @var this.chooseRandomBlock()
     @var this.playSoundToPlayersOnStage("minecraft:entity.experience_orb.pickup", "1.0", "1.0")
@@ -55,18 +50,12 @@
     # changes based on round time, there was an earlier check that should end game early if on a theoretically impossible round
     @var this.waitForDisappearingBlock()
 
-
+    # WAITING PERIOD TO ALLOW PLAYER DEATHS
     @var this.removeAllBlocksExceptChosen()
     @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.infect", "1.0", "1.0")
     @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.destroy_egg", "1.0", "1.0")
-    @slow
-    @delay 5s
-    @fast
+    @var this.waitAfterBlocksDisappeared()
 
-    # temporary
-    @var this.setAllPlayerHotbars("minecraft:air")
-
-    # TODO Detect player deaths, choose winner, end game.
     @var this.countStagesPassed()
 @done
 

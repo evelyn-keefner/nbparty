@@ -1,5 +1,5 @@
 @fast
-@var this.messageAllPlayers("The game is over now")
+@var this.messageAllPlayers("The party is over now.")
 @var this.resetStage()
 @var this.game_active = false
 @var this.round = 0

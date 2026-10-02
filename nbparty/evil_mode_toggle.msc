@@ -1,4 +1,3 @@
-# join(Player player)
 @if nbparty::currentGame.game_active
     @player [Not Block Party] There is a game currently running! Please wait until it is finished.
 @else

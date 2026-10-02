@@ -1,0 +1,6 @@
+# Method setPlayerHotbar(String player_name, String block)
+@fast
+
+@for Int i in list::range(0, 9)
+    @bypass /item replace entity {{player_name}} hotbar.{{i}} with {{block}}
+@done 

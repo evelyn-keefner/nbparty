@@ -1,0 +1,46 @@
+All instances of [Not Block Party]
+
+Global Functions:
+displayStats.msc
+personal stats display
+
+evil_mode_toggle.msc
+Evil Mode messages when clicking sign
+
+joinGame.msc
+leaving and joining game (from the sign)
+
+startGame.msc
+alerting player when game is currently running, or if there are no players to start game
+(when clicking start sign)
+
+
+
+Game methods:
+beginCountdown.msc 
+countdown messages
+
+checkForWinner.msc
+winner message
+
+
+
+
+
+
+
+
+Other text:
+Game methods:
+determineEvilRound.msc 
+Announcement of evil round
+
+displayStageNameAndCreator.msc
+self explanatory, prints stage_name and creator_names as they are entered in init file stage constructors
+
+eliminatePlayer.msc
+{{player_name}} fell!
+
+endGame.msc
+The party is over now.
+probably just keep this looking boring it's anticlimatic and i like it

@@ -77,6 +77,9 @@
         Int yend
         Int zend
 
+        # number of blocks from stage height, to bottom of where the player can fall
+        Int death_area_height
+
         Stage[] stages
         Stage[] evil_stages
         Stage neutral_stage
@@ -101,45 +104,77 @@
         Boolean evil_round
 
         # Default constructor
-        Game(Int x, Int y, Int z, Int xend, Int yend, Int zend, Stage[] stages, Stage[] evil_stages, Stage neutral_stage)
+        Game(Int x, Int y, Int z, Int xend, Int yend, Int zend, Int death_area_height, Stage[] stages, Stage[] evil_stages, Stage neutral_stage)
 
         # text display 
+        # checks to see if join sign exists in list of join signs, then if not, kills existing text displays there, and creates a new one (then adds entity to list)
         addTextDisplayToListFromJoinSign(Block block)
+        # takes current player list then changes all text display data (in the list) to have the list of players
         updatePlayerListDisplays()
+        # helper function for updatePlayerListDisplays()
         String playerListToTextDisplay()
 
-        # Performing actions on every player in the game
+        # Player helper functions
+        # messages all players using distance=..64 centered at this.x, this.y, this.z. This messages even spectators EDIT TO BE BETTER
         messageAllPlayers(String message)
+        # messages players only within the bounds of the game box 
         messagePlayersOnStage(String message)
+        # this uses players in player list only, if they get out then they can't hear anymore 
         playSoundToAllPlayers(String sound, String volume, String pitch)
+        # only within bounds of game box
         playSoundToPlayersOnStage(String sound, String volume, String pitch)
-        stopSoundsForAllPlayers()
+        # for players in player list, changes their hotbar to a certain block
         setAllPlayerHotbars(String block)
+        # sets 1 player's hotbar to a certain block
+        setPlayerHotbar(String player_name, String block)
+        # increments player death stat, removes them from player list, should also handle clearing their inventory and other reset functions
         eliminatePlayer(String player_name)
+        # helper function to determine if player is on top of the stage (excludes the falling area)
+        Boolean playerOnStage(String player_name)
+        # helper function to determine if player is in playable area, including the falling area
         Boolean playerInPlayableArea(String player_name)
+        # called when new stage added. if player isn't directly on stage (mainly trying to remove those who log out or teleport away, counts as a death called eliminatePlayer() on them)
         removePlayersOutsideOfPlayArea()
 
         # handles main game loop and calls literally every other function if debugging or trying to figure out how my terrible code works start here
         startGame()
 
         # startGame() functions
+        # checks if start sign cancelled, and if not goes through with the countdown then returns control back to startGame()
         Boolean beginCountdown()
+        # randomly spread players across stage
         teleportPlayersToStage()
+        # set stage to neutral_stage
         resetStage()
+        # randomly sets flag evil_round to true or false. This flag is checked in newRandomStage()
         determineEvilRound()
+        # sets play area to a random stage (if evil round chooses evil stage)
         newRandomStage()
+        # sends a message in chat using the variables stage_name and creator_names from stage object
         displayStageNameAndCreator()
+        # master control on difficulty scaling called by waitForDisappearingBlock() TODO CHANGE FROM 0.25 SECOND INTERVALS TO 1t INTERVALS
         Int getDelayTimeFromRound()
-        Boolean informPlayersOfRoundTime()
-        waitForBlock()
+        # TODO quarter seconds -> ticks & maybe make this just a helper function to convert seconds to ticks then have the message sent be in startGame
+        informPlayersOfRoundTime()
+        # chooses random block from stage and sets player hotbars to it
         chooseRandomBlock()
-        waitForDisappearingBlock()
+        # /clone & /fill to remove every block type except 1 chosen
         removeAllBlocksExceptChosen()
+        # called by eliminatePlayer, checks for winner, and if there is a winner the game is ended. updates player stat
         checkForWinner(String player_name)
-        endGame()
+        # update player stat stages passed
         countStagesPassed()
+        endGame()
+
+        # Time player has after stage is loaded to walk around and look at it. TODO add boss bar for this section!
+        waitForBlock()
+        # waits time specified by getDelayTimeFromRound (the time to react after block chosen before stage falls) TODO change from quarter seconds to ticks & add boss bar
+        waitForDisappearingBlock()
+        # after blocks disappear there's a little gap when they're gone and this gives people time to fall if they failed. TODO: add bossbar
+        waitAfterBlocksDisappeared()
+        # neutral stage loaded, waiting. TODO: add bossbar
+        waitForRoundToStart()
 
     @endclass
-
 
 @endnamespace

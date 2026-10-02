@@ -5,6 +5,7 @@
 @var this.xend = xend
 @var this.yend = yend
 @var this.zend = zend
+@var this.death_area_height = death_area_height
 @var this.stages = stages
 @var this.evil_stages = evil_stages
 @var this.neutral_stage = neutral_stage
