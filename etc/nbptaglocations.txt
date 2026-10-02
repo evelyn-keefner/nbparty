@@ -23,8 +23,13 @@ countdown messages
 checkForWinner.msc
 winner message
 
+informPlayersOfRoundTime.msc 
+[Not Block Party] Round {{this.round}}: {{roundTimeInSeconds}} seconds
 
-
+startGame.msc 
+start cancelled message 
+game starting message 
+round limit message
 
 
 
@@ -44,3 +49,7 @@ eliminatePlayer.msc
 endGame.msc
 The party is over now.
 probably just keep this looking boring it's anticlimatic and i like it
+
+removePlayersOutsideOfPlayArea.msc 
+playername left the area 
+

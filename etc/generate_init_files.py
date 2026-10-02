@@ -280,8 +280,26 @@ def appendStages(filename, stage_data):
 
     f.close()
 
+def promptFileCreationConfirmation():
+    userInput = ""
+
+    while True:
+        userInput = input("Enter y / n: ").lower().strip()
+        try:
+            if (userInput != "y" and userInput != "n"):
+                raise Exception()
+
+            if (userInput == "y"):
+                return True
+
+            if (userInput == "n"):
+                return False
+
+        except:
+            pass
+
 def generateStackInitFile(filename):
-    stage_data = promptStackInitFile()
+    cancel_operation = False
 
     try:
         f_check = open(filename, "r", encoding="utf-8")
@@ -290,12 +308,22 @@ def generateStackInitFile(filename):
 
         # check if the header needs to be added or if stages can just be appended
         if (comment != "# initStages()\n"):
-            print(f"{filename} header broken. Creating new {filename}")
-            writeHeader(filename)
+            print(f"{filename} header broken. Do you want to create new {filename}?")
+            if (promptFileCreationConfirmation()):
+                writeHeader(filename)
+            else:
+                cancel_operation = True
     except:
-        print(f"Couldn't open {filename}. Creating new {filename}")
-        writeHeader(filename)
+        print(f"Couldn't open {filename}. Do you want to create new {filename}?")
+        if (promptFileCreationConfirmation()):
+            writeHeader(filename)
+        else:
+            cancel_operation = True
 
+    if (cancel_operation):
+        clean_exit(0)
+
+    stage_data = promptStackInitFile()
     print(f"Appending new stages to end of {filename}")
     appendStages(filename, stage_data)
 
