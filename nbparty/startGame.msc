@@ -1,5 +1,4 @@
 @fast
-
 @if (nbparty::currentGame.game_active)
     @bypass /playsound minecraft:entity.villager.no master {{player.string()}} ~ ~ ~ 1.0 1.27
     @player [Not Block Party] There is a game currently running! Please wait until it is finished.

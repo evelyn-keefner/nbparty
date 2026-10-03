@@ -12,7 +12,6 @@
 @var this.teleportPlayersToStage()
 
 @var this.game_active = true
-
 @var this.evil_round = false
 
 
@@ -20,14 +19,18 @@
 @for Int i in list::range(1, 1000)
     # this is how loop is broken whenever game is ended by the last player being eliminated
     @if !this.game_active
+        @var this.endGame()
         @return
     @fi
-
     # WAITING PERIOD BEFORE ROUND STARTS
     @var this.setAllPlayerHotbars("minecraft:air")
     @var this.resetStage()
     @var this.waitForRoundToStart()
 
+    @if !this.game_active
+        @var this.endGame()
+        @return
+    @fi
     # ROUND START PERIOD
     # check if players are still in the game (if they are logged out)
     @var this.removePlayersOutsideOfPlayArea()
@@ -42,6 +45,10 @@
     # time you get to run around on the random stage before getting a block
     @var this.waitForBlock()
 
+    @if !this.game_active
+        @var this.endGame()
+        @return
+    @fi
     # REACTION PERIOD
     # choose random block and set player hotbar
     @var this.chooseRandomBlock()
@@ -50,6 +57,10 @@
     # changes based on round time, there was an earlier check that should end game early if on a theoretically impossible round
     @var this.waitForDisappearingBlock()
 
+    @if !this.game_active
+        @var this.endGame()
+        @return
+    @fi
     # WAITING PERIOD TO ALLOW PLAYER DEATHS
     @var this.removeAllBlocksExceptChosen()
     @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.infect", "1.0", "1.0")
@@ -59,5 +70,6 @@
     @var this.countStagesPassed()
 @done
 
+@var this.messageAllPlayers("The party is over now.")
 @var this.endGame()
 @return
