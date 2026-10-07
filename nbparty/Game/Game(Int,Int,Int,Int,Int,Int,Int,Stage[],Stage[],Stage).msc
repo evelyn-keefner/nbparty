@@ -7,6 +7,7 @@
 @var this.zend = zend
 @var this.death_area_height = death_area_height
 @var this.stages = stages
+@var this.challenge_stages = challenge_stages
 @var this.evil_stages = evil_stages
 @var this.neutral_stage = neutral_stage
 

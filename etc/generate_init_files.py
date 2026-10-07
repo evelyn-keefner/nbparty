@@ -94,7 +94,7 @@ def appendStackToFilePrompt() -> int:
         choice = input("Enter selection: (as a number. enter -1 to exit)\n")
         try:
             choice = int(choice)
-            
+
             if choice == -1:
                 return choice
 
@@ -194,10 +194,24 @@ def promptStackInitFile() -> []:
 
 def writeHeader(filename):
     f = openFileToWriteErrorChecked(filename)
-    f.write("# initStages()\n")
+
+    if "challenge" in filename.lower():
+        f.write("# initChallengeStages()\n")
+    elif "evil" in filename.lower():
+        f.write("# initEvilStages()\n")
+    else:
+        f.write("# initStages()\n")
+
     f.write("@fast\n")
     f.write("\n")
-    f.write("@var nbparty::stages = nbparty::Stage[]\n")
+
+    if "challenge" in filename.lower():
+        f.write("@var nbparty::challenge_stages = nbparty::Stage[]\n")
+    elif "evil" in filename.lower():
+        f.write("@var nbparty::evil_stages = nbparty::Stage[]\n")
+    else:
+        f.write("@var nbparty::stages = nbparty::Stage[]\n")
+
     f.write("\n")
     f.close()
 
@@ -265,7 +279,7 @@ def promptCreatorNames(y):
             awaiting_input = False
         else:
             print("Name mispelled or not in script player list. Please check again or update the list.")
-            
+
     return creator_list 
 
 def appendStages(filename, stage_data):
@@ -276,8 +290,12 @@ def appendStages(filename, stage_data):
         stage_name = promptStageName(y)
         creator_names = promptCreatorNames(y)
 
-        f.write(f"@var nbparty::stages.append(nbparty::Stage({x1}, {z1}, {x2}, {z2}, {y}, \"{stage_name}\", \"{creator_names}\"))\n")
-
+        if "challenge" in filename.lower():
+            f.write(f"@var nbparty::challenge_stages.append(nbparty::Stage({x1}, {z1}, {x2}, {z2}, {y}, \"{stage_name}\", \"{creator_names}\"))\n")
+        elif "evil" in filename.lower():
+            f.write(f"@var nbparty::evil_stages.append(nbparty::Stage({x1}, {z1}, {x2}, {z2}, {y}, \"{stage_name}\", \"{creator_names}\"))\n")
+        else:
+            f.write(f"@var nbparty::stages.append(nbparty::Stage({x1}, {z1}, {x2}, {z2}, {y}, \"{stage_name}\", \"{creator_names}\"))\n")
     f.close()
 
 def promptFileCreationConfirmation():

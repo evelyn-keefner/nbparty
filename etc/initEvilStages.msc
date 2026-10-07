@@ -1,10 +1,7 @@
 # initStages()
 @fast
 
-@var nbparty::stages = nbparty::Stage[]
+@var nbparty::evil_stages = nbparty::Stage[]
 
-@var nbparty::stages.append(nbparty::Stage(9995, 9983, 10026, 10014, 85, "sandstone", "&aMeddleLyn"))
-@var nbparty::stages.append(nbparty::Stage(9995, 9983, 10026, 10014, 88, "Pumpkin", "&aMeddleLyn"))
-@var nbparty::stages.append(nbparty::Stage(9995, 9983, 10026, 10014, 85, "sandstone", "&aMeddleLyn"))
-@var nbparty::stages.append(nbparty::Stage(9995, 9983, 10026, 10014, 88, "Pumpkin", "&aMeddleLyn"))
-@var nbparty::stages.append(nbparty::Stage(9995, 9983, 10026, 10014, 91, "Fences", "&aMeddleLyn"))
+@var nbparty::evil_stages.append(nbparty::Stage(9995, 9983, 10026, 10014, 85, "&l&6SANDSTONE", "&aMeddleLyn"))
+@var nbparty::evil_stages.append(nbparty::Stage(9995, 9983, 10026, 10014, 88, "&l&iPUMPKIN", "&aMeddleLyn"))

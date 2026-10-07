@@ -1,5 +1,0 @@
-# initStages()
-@fast
-
-@var nbparty::stages = nbparty::Stage[]
-

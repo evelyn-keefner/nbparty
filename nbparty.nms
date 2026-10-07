@@ -2,6 +2,7 @@
     # Persistent Objects (Created on __init__)
     Game currentGame
     Stage[] stages
+    Stage[] challenge_stages
     Stage[] evil_stages
     Stage neutral_stage
     relative Int deaths
@@ -83,6 +84,7 @@
         Int death_area_height
 
         Stage[] stages
+        Stage[] challenge_stages
         Stage[] evil_stages
         Stage neutral_stage
 
@@ -170,7 +172,7 @@
 
         # Time player has after stage is loaded to walk around and look at it. TODO add boss bar for this section!
         waitForBlock()
-        # waits time specified by getDelayTimeFromRound (the time to react after block chosen before stage falls) TODO add boss bar
+        # waits time specified by getDelayTimeFromRound (the time to react after block chosen before stage falls) TODO: add boss bar
         waitForDisappearingBlock()
         # after blocks disappear there's a little gap when they're gone and this gives people time to fall if they failed. TODO: add bossbar
         waitAfterBlocksDisappeared()

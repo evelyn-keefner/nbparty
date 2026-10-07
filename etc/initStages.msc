@@ -1,5 +1,10 @@
 # initStages()
 @fast
 
-@var nbparty::stages = nbparty::Stage[]
-
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 89, "the glob", "&agoomyii"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 92, "It's okay that this exists", "&agoomyii"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 95, "The glob pt 2", "&agoomyii and &ahybyrn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 98, "&l&o&0trust it", "&aMeddleLyn and &ahybyrn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 101, "stage .", "&aMeddleLyn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 104, "&l&2another stage .", "&aMeddleLyn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 107, "&l&5stageeee", "&aMeddleLyn"))
