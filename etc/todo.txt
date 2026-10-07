@@ -19,8 +19,6 @@ Music
 
 Stats
 No Stats in evil mode 
-Add normal mode & easy mode
-
 MAYBE DIFFERENT STATS FOR EACH MODE?
 
 deaths 
@@ -36,4 +34,6 @@ need to add implementation
 Top Wins Leaderboard
 wins
 
+When game ends & leaderboards are updated, go through every player in the game (maybe have a persistent player list for every game? that doesnt get removed from) and see if they are above top 10 for every stat. If true for any leaderboard add them in the right spot. Only need to update stats of players that just played in the last game.
 
+Make lists for every leaderboard, just player names in order, no number needs to be stored just order of players. Then their data can be grabbed.

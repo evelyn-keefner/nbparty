@@ -1,0 +1,25 @@
+setup neutral stage init file manually
+
+- Have 3 stacks (Normal, Challenge, Evil)
+- Run python script to generate stage init files
+- Edit stage names after for colors and styles
+
+- setup death region (1 block or 2 block tall region at bottom of pit)
+
+- add deathRegionArea() area script to death region
+
+- setup teleport location on death in deathRegionImplementation()
+
+- multiple join buttons with join() script
+
+- start button with start() script
+
+- easy, normal, evil difficulty selection each with corresponding script {difficulty}_mode()
+
+- stat button with stats() script
+
+- admin room scripts 
+  end game button with end() script
+  **MORE TO COME**
+
+- manually change coordinates for leaderboards. maybe can implement a single init() file that does this all. leaderboard is passed a list of players maybe
