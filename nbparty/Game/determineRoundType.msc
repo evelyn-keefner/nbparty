@@ -1,0 +1,27 @@
+# method determineRoundType()
+@fast
+
+
+@if (this.easy_mode)
+    @var this.normal_round = true
+    @var this.challenge_round = false
+    @var this.evil_round = false
+@fi
+
+
+@if (this.normal_mode)
+    @var this.determineNormalOrChallenge()
+@fi
+
+@if (this.evil_mode)
+    @define Float evil_rng = math::randomFloat()
+    @if (evil_rng <= 0.3)
+        @var this.normal_round = false
+        @var this.challenge_round = false
+        @var this.evil_round = true
+        @var this.messagePlayersOnStage("&k&0---&r&l&4EVIL ROUND&k&0---")
+        @var this.playSoundToPlayersOnStage("minecraft:entity.ender_dragon.ambient", "0.5", "1.0")
+    @else
+        @var this.determineNormalOrChallenge()
+    @fi
+@fi

@@ -1,0 +1,2 @@
+# join(Player player)
+@var nbparty::easy_mode_toggle(block, player)

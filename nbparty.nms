@@ -5,9 +5,10 @@
     Stage[] challenge_stages
     Stage[] evil_stages
     Stage neutral_stage
-    relative Int deaths
-    relative Int stages_passed
-    relative Int wins
+    relative Int deaths = 0
+    relative Int stages_passed = 0
+    relative Int highest_stage = 0
+    relative Int wins = 0
 
     # setup functions (manually edit before running)
     __init__()
@@ -23,6 +24,8 @@
     # interact scripts
     join(Block block, Player player)
     start(Block block, Player player)
+    easy_mode(Block block, Player player)
+    normal_mode(Block block, Player player)
     evil_mode(Block block, Player player)
     stats(Block block, Player player)
     
@@ -32,6 +35,8 @@
     # interact functions (interact script implementations)
     joinGame(Block block, Player player)
     startGame(Block block, Player player)
+    easy_mode_toggle(Block block, Player player)
+    normal_mode_toggle(Block block, Player player)
     evil_mode_toggle(Block block, Player player)
     displayStats(Block block, Player player)
 
@@ -104,7 +109,15 @@
         Boolean start_game_check
         Int times_start_pressed
 
+        # TODO implement, & no stats, just normal stages
+        Boolean easy_mode
+        # TODO implement, has stats, proportionally randomize between normal and challenge stages
+        Boolean normal_mode 
+        # #TODO no stats
         Boolean evil_mode
+        # normal, challenge or evil stage
+        Boolean normal_round
+        Boolean challenge_round
         Boolean evil_round
 
         # Default constructor
@@ -150,8 +163,10 @@
         teleportPlayersToStage()
         # set stage to neutral_stage
         resetStage()
-        # randomly sets flag evil_round to true or false. This flag is checked in newRandomStage()
-        determineEvilRound()
+        # proportionally randomizes between normal stages & challenge stages (prints message for challenge stages). Called in determineRoundType()
+        determineNormalOrChallenge()
+        # randomly sets round flags based on difficulty selected. This flag is checked in newRandomStage()
+        determineRoundType()
         # sets play area to a random stage (if evil round chooses evil stage)
         newRandomStage()
         # sends a message in chat using the variables stage_name and creator_names from stage object

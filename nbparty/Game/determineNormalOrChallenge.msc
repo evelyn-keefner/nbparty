@@ -1,0 +1,15 @@
+# method determineNormalOrChallenge()
+@fast
+
+@define Int totalStages = this.stages.length() + this.challenge_stages.length()
+@define Float normalProportion = (1.0 * this.stages.length()) / totalStages
+@define Float stage_rng = math::randomFloat()
+@if (stage_rng <= normalProportion)
+    @var this.normal_round = true
+    @var this.challenge_round = false
+@else 
+    @var this.normal_round = false
+    @var this.challenge_round = true
+    @var this.messagePlayersOnStage("&l&e---Challenge Round---")
+@fi
+@var this.evil_round = false

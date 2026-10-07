@@ -3,5 +3,7 @@
 @bypass /playsound minecraft:block.note_block.pling master {{player.string()}} ~ ~ ~ 1.0 1.0
 @player [Not Block Party] --- Your Stats ---
 @player [Not Block Party] Deaths: {{nbparty::deaths[player]}}
-@player [Not Block Party] Stages Passed: {{nbparty::stages_passed[player]}}
+@player [Not Block Party] Rounds Passed: {{nbparty::stages_passed[player]}}
 @player [Not Block Party] Wins: {{nbparty::wins[player]}}
+@player [Not Block Party] Highest Round Reached: {{nbparty::highest_stage[player]}}
+@player [Not Block Party] Average Rounds Survived: {{nbparty::stages_passed[player] / nbparty::deaths[player]}}

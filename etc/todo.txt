@@ -19,6 +19,9 @@ Music
 
 Stats
 No Stats in evil mode 
+Add normal mode & easy mode
+
+MAYBE DIFFERENT STATS FOR EACH MODE?
 
 deaths 
 stages passed 

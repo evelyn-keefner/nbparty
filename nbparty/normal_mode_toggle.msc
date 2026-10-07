@@ -1,8 +1,8 @@
 @if nbparty::currentGame.game_active
     @player [Not Block Party] There is a game currently running! Please wait until it is finished.
 @else
-    @var nbparty::currentGame.evil_mode = true
-    @player [Not Block Party] &k&4-&r&l&4EVIL MODE ACTIVATED&r&k&4-
+    @var nbparty::currentGame.normal_mode = true
+    @player [Not Block Party] &l&eNormal Mode Activated!
     @var nbparty::currentGame.easy_mode = false
-    @var nbparty::currentGame.normal_mode = false
+    @var nbparty::currentGame.evil_mode = false
 @fi

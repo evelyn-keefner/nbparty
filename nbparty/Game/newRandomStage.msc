@@ -1,10 +1,17 @@
 # method Game.newRandomStage()
 @fast 
 
-@if (!this.evil_round)
+@if (this.normal_round)
     @var this.stages.shuffle()
     @var this.current_stage = this.stages[0]
-@else
+@fi
+
+@if (this.challenge_round)
+    @var this.challenge_stages.shuffle()
+    @var this.current_stage = this.challenge_stages[0]
+@fi
+
+@if (this.evil_round)
     @var this.evil_stages.shuffle()
     @var this.current_stage = this.evil_stages[0]
 @fi

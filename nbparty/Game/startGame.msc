@@ -12,6 +12,8 @@
 @var this.teleportPlayersToStage()
 
 @var this.game_active = true
+@var this.normal_round = false
+@var this.challenge_round = false
 @var this.evil_round = false
 
 
@@ -39,7 +41,7 @@
     # update players about how long they will have to run to block 
     @var this.messagePlayersOnStage("[Not Block Party] Round {{this.round}}: {{this.ticksToSeconds(this.getDelayTimeFromRound())}} seconds")
     # chooses new random stage, pastes it to main area, and adds blocks in stage to a Block[] list
-    @var this.determineEvilRound()
+    @var this.determineRoundType()
     @var this.newRandomStage()
     @var this.displayStageNameAndCreator()
     # time you get to run around on the random stage before getting a block
