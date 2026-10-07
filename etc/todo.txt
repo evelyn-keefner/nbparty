@@ -1,0 +1,36 @@
+Bossbar
+    - Waiting period
+      [Waiting to load next stage...]
+    - Round start period
+      [(round time) seconds until the music stops]
+    - Reaction period 
+      [(round time) seconds until the music stops]
+      begins falling here
+    - Death period
+      [STOP]
+
+Music
+    - Song Class ?
+      - able to play at different spots
+      - able to pause
+    - Jukebox class ?
+      - list of songs
+      - keeps track of current spot in song
+
+Stats
+No Stats in evil mode 
+
+deaths 
+stages passed 
+wins
+Average Rounds Survived Leaderboard
+(maybe over 10 games played to be on the leaderboard? >= 10 deaths)
+stages passed / deaths
+
+Top Round Survived Leaderboard
+need to add implementation
+
+Top Wins Leaderboard
+wins
+
+

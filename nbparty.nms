@@ -11,6 +11,7 @@
     # setup functions (manually edit before running)
     __init__()
     initStages()
+    initChallengeStages()
     initEvilStages()
     initNeutralStage()
     initGame()
@@ -153,10 +154,10 @@
         newRandomStage()
         # sends a message in chat using the variables stage_name and creator_names from stage object
         displayStageNameAndCreator()
-        # master control on difficulty scaling called by waitForDisappearingBlock() TODO CHANGE FROM 0.25 SECOND INTERVALS TO 1t INTERVALS
+        # master control on difficulty scaling called by waitForDisappearingBlock() 
         Int getDelayTimeFromRound()
-        # TODO quarter seconds -> ticks & maybe make this just a helper function to convert seconds to ticks then have the message sent be in startGame
-        informPlayersOfRoundTime()
+        # helper function to print round time in seconds in startGame()
+        Float ticksToSeconds(Int ticks)
         # chooses random block from stage and sets player hotbars to it
         chooseRandomBlock()
         # /clone & /fill to remove every block type except 1 chosen
@@ -169,7 +170,7 @@
 
         # Time player has after stage is loaded to walk around and look at it. TODO add boss bar for this section!
         waitForBlock()
-        # waits time specified by getDelayTimeFromRound (the time to react after block chosen before stage falls) TODO change from quarter seconds to ticks & add boss bar
+        # waits time specified by getDelayTimeFromRound (the time to react after block chosen before stage falls) TODO add boss bar
         waitForDisappearingBlock()
         # after blocks disappear there's a little gap when they're gone and this gives people time to fall if they failed. TODO: add bossbar
         waitAfterBlocksDisappeared()

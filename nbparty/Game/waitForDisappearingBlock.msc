@@ -1,6 +1,6 @@
-@define Int numberOfQuarterSeconds = this.getDelayTimeFromRound()
+@define Int numberOfTicks = this.getDelayTimeFromRound()
 
-@for Int i in list::range(0, numberOfQuarterSeconds)
-    # 5t = 0.25s
-    @delay 5
+@for Int i in list::range(0, numberOfTicks)
+    # 1t = 0.05s
+    @delay 1
 @done

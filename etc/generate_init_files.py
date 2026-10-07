@@ -1,6 +1,6 @@
 import os
 
-INIT_FILES = ["initStages.msc", "initEvilStages.msc"]
+INIT_FILES = ["initStages.msc", "initChallengeStages.msc", "initEvilStages.msc"]
 
 ADMINS = [
     "jasmine476",

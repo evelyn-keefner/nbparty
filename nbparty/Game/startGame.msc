@@ -37,7 +37,7 @@
     # update round #
     @var this.round += 1
     # update players about how long they will have to run to block 
-    @var this.informPlayersOfRoundTime()
+    @var this.messagePlayersOnStage("[Not Block Party] Round {{this.round}}: {{this.ticksToSeconds(this.getDelayTimeFromRound())}} seconds")
     # chooses new random stage, pastes it to main area, and adds blocks in stage to a Block[] list
     @var this.determineEvilRound()
     @var this.newRandomStage()

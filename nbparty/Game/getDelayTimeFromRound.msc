@@ -1,41 +1,33 @@
 # method Int getDelayTimeFromRound()
-# returns how many 5t intervals to wait. 0.25 seconds
+# returns how many 1t intervals to wait. 0.05 seconds
 
 # ok i know if statements are evil but i want the control over every round and exact timing changes its ok pats
 # thanks goomy
 @if (this.round >= 0 && this.round <= 3)
     # 5 seconds
-    @return 20
+    @return 100
 @elseif (this.round >= 4 && this.round <= 6)
     # 4 seconds
-    @return 16
+    @return 80
 @elseif (this.round >= 7 && this.round <= 9)
     # 3 seconds
-    @return 12
+    @return 60
 @elseif (this.round >= 10 && this.round <= 12)
     # 2.5 seconds
-    @return 10
+    @return 50
 @elseif (this.round >= 13 && this.round <= 15)
     # 2 seconds
-    @return 8
+    @return 40
 @elseif (this.round >= 16 && this.round <= 20)
     # 1.5 seconds
-    @return 6
+    @return 30
 @elseif (this.round >= 21 && this.round <= 25)
     # 1 seconds
-    @return 4
+    @return 20
 @elseif (this.round >= 26 && this.round <= 1000)
-    @return 2
+    # 0.5 seconds
+    @return 10
 @else
     # MAXIMUM ROUND FOR THIS ITERATION IS: 1000
     @return -1
 @fi
-
-# testing
-# @if (this.round >= 0 && this.round <= 3)
-    # 1 second
-    # @return 4
-# @elseif (this.round >= 4 && this.round <= 1000)
-    # 0.75 seconds
-    # @return 3
-# @fi

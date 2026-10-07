@@ -1,0 +1,10 @@
+# method Float ticksToSeconds(Int ticks)
+@fast
+
+@define Float roundTimeInSeconds = 0.0
+
+@for Int i in list::range(0, ticks)
+    @var roundTimeInSeconds += 0.05
+@done
+
+@return roundTimeInSeconds
