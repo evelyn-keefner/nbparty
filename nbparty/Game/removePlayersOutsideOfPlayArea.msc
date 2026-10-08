@@ -2,9 +2,7 @@
 @fast
 @for String player_name in this.players
     @if !this.playerInPlayableArea(player_name)
-        @var nbparty::deaths[Player(player_name)] += 1
         @var this.messagePlayersOnStage("&z{{player_name}} left the play area!")
-
         @var this.eliminatePlayer(player_name)
     @fi
 @done

@@ -1,0 +1,12 @@
+# method String listToTextDisplay(String[] list)
+
+@define String text_display_string = ""
+
+@for Int i in list::range(0, list.length())
+    @var text_display_string += list[i]
+    @if i != list.length() - 1
+        @var text_display_string += "\n"
+    @fi
+@done
+
+@return text_display_string

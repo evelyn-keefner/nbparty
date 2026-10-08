@@ -1,9 +1,28 @@
 @fast
 
 @bypass /playsound minecraft:block.note_block.pling master {{player.string()}} ~ ~ ~ 1.0 1.0
-@player [Not Block Party] --- Your Stats ---
-@player [Not Block Party] Deaths: {{nbparty::deaths[player]}}
-@player [Not Block Party] Rounds Passed: {{nbparty::stages_passed[player]}}
-@player [Not Block Party] Wins: {{nbparty::wins[player]}}
-@player [Not Block Party] Highest Round Reached: {{nbparty::highest_stage[player]}}
-@player [Not Block Party] Average Rounds Survived: {{nbparty::stages_passed[player] / nbparty::deaths[player]}}
+@player --- Your Stats ---
+
+@player &l&aEasy Mode Stats:
+@player Deaths: {{nbparty::deaths[player][0]}}
+@player Rounds Passed: {{nbparty::stages_passed[player][0]}}
+@player Wins: {{nbparty::wins[player][0]}}
+@player  Highest Round Reached: {{nbparty::highest_stage[player][0]}}
+@player Average Rounds Survived: {{nbparty::average_rounds_survived[0]}}
+@player -----
+
+@player &l&eNormal Mode Stats:
+@player Deaths: {{nbparty::deaths[player][1]}}
+@player Rounds Passed: {{nbparty::stages_passed[player][1]}}
+@player Wins: {{nbparty::wins[player][1]}}
+@player  Highest Round Reached: {{nbparty::highest_stage[player][1]}}
+@player Average Rounds Survived: {{nbparty::average_rounds_survived[1]}}
+@player -----
+
+@player &l&4Evil Mode Stats:
+@player Deaths: {{nbparty::deaths[player][2]}}
+@player Rounds Passed: {{nbparty::stages_passed[player][2]}}
+@player Wins: {{nbparty::wins[player][2]}}
+@player  Highest Round Reached: {{nbparty::highest_stage[player][2]}}
+@player Average Rounds Survived: {{nbparty::average_rounds_survived[2]}}
+@player -----

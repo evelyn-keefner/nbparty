@@ -3,6 +3,8 @@
 
 @if this.players.length() == 0
     @var this.messageAllPlayers("[Not Block Party] {{player_name}} winsssssssssssssssssssssssss")
-    @var nbparty::wins[Player(player_name)] += 1
+    @if (this.persistent_players.length() >= 2)
+        @var nbparty::wins[Player(player_name)][this.getIndexFromCurrentMode()] += 1
+    @fi
     @var this.game_active = false
 @fi

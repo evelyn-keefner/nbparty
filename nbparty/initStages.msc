@@ -3,10 +3,10 @@
 
 @var nbparty::stages = nbparty::Stage[]
 
-@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 89, "&l&athe glob", "&2goomyii"))
-@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 92, "&l&aIt's okay that this exists", "&2goomyii, &2hybyrn"))
-@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 95, "&l&7the glob pt. 2", "&1the microphones"))
-@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 98, "&l&o&0trust it", "&2MeddleLyn, &2hybyrn"))
-@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 101, "&l&1stage .", "&2MeddleLyn"))
-@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 104, "&l&2another stage .", "&2MeddleLyn"))
-@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 107, "&l&5stageee.", "&2MeddleLyn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 89, "awesome stage", "&agoomyii and &ahybyrn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 92, "it's ok that this exists", "&agoomyii"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 95, "stage .", "&aMeddleLyn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 98, "trust it", "&aMeddleLyn and &ahybyrn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 101, "another stageeeeeee green . blue .", "&aMeddleLyn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 104, "these blocks", "&aMeddleLyn"))
+@var nbparty::stages.append(nbparty::Stage(9996, 10019, 10027, 10050, 107, "Halloween", "&aMeddleLyn"))

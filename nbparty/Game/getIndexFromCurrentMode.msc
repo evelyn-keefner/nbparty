@@ -1,0 +1,9 @@
+# method Int getIndexFromCurrentMode()
+
+@if (this.easy_mode)
+    @return 0
+@elseif (this.normal_mode)
+    @return 1
+@elseif (this.evil_mode)
+    @return 2
+@fi

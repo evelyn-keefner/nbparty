@@ -1,7 +1,6 @@
 # method determineRoundType()
 @fast
 
-
 @if (this.easy_mode)
     @var this.normal_round = true
     @var this.challenge_round = false

@@ -16,6 +16,12 @@
 @var this.challenge_round = false
 @var this.evil_round = false
 
+@if (!this.easy_mode || !this.normal_mode || !this.evil_mode)
+    @var this.normal_mode = true
+@fi
+
+# save list of players in game for leaderboard update
+@var this.persistent_players = this.players
 
 # in theory last round never gets reached
 @for Int i in list::range(1, 1000)
@@ -39,7 +45,7 @@
     # update round #
     @var this.round += 1
     # update players about how long they will have to run to block 
-    @var this.messagePlayersOnStage("[Not Block Party] Round {{this.round}}: {{this.ticksToSeconds(this.getDelayTimeFromRound())}} seconds")
+    @var this.messagePlayersOnStage("[Not Block Party] Round {{this.round}}: {{math::roundToPlaces(Double(this.ticksToSeconds(this.getDelayTimeFromRound())), 2)}} seconds")
     # chooses new random stage, pastes it to main area, and adds blocks in stage to a Block[] list
     @var this.determineRoundType()
     @var this.newRandomStage()

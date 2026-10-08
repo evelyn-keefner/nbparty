@@ -18,13 +18,13 @@
 @elseif (this.round >= 13 && this.round <= 15)
     # 2 seconds
     @return 40
-@elseif (this.round >= 16 && this.round <= 20)
+@elseif (this.round >= 16 && this.round <= 25)
     # 1.5 seconds
     @return 30
-@elseif (this.round >= 21 && this.round <= 25)
+@elseif (this.round >= 26 && this.round <= 35)
     # 1 seconds
     @return 20
-@elseif (this.round >= 26 && this.round <= 1000)
+@elseif (this.round >= 36 && this.round <= 1000)
     # 0.5 seconds
     @return 10
 @else

@@ -5,10 +5,13 @@
     @var this.messagePlayersOnStage("&z{{player_name}} is eliminated!")
 
     # update stats
-    @var nbparty::deaths[Player(player_name)] += 1
-    @if (this.round > nbparty::highest_stage[Player(player_name)])
-        @var nbparty::highest_stage[Player(player_name)] = this.round
+    @var nbparty::deaths[Player(player_name)][this.getIndexFromCurrentMode()] += 1
+    @if (this.round > nbparty::highest_stage[Player(player_name)][this.getIndexFromCurrentMode()])
+        @var nbparty::highest_stage[Player(player_name)][this.getIndexFromCurrentMode()] = this.round
     @fi
+
+    @define Double average_rounds_survived_calculation = 1D * nbparty::stages_passed[Player(player_name)][this.getIndexFromCurrentMode()] / nbparty::deaths[Player(player_name)][this.getIndexFromCurrentMode()]
+    @var nbparty::average_rounds_survived[Player(player_name)][this.getIndexFromCurrentMode()] = math::roundToPlaces(average_rounds_survived_calculation, 2)
 
 
     @define Int removeIndex = this.players.find(player_name)

@@ -1,6 +1,10 @@
+# initChallengeStages()
 @fast
 
 @var nbparty::challenge_stages = nbparty::Stage[]
 
-@var nbparty::challenge_stages.append(nbparty::Stage(9995, 9983, 10026, 10014, 85, "&l&6SANDSTONE", "&4the evil"))
-@var nbparty::challenge_stages.append(nbparty::Stage(9995, 9983, 10026, 10014, 88, "&l&iPUMPKIN", "&2MeddleLyn"))
+@var nbparty::challenge_stages.append(nbparty::Stage(10033, 10019, 10064, 10050, 89, "terracotta against white background", "&ahybyrn"))
+@var nbparty::challenge_stages.append(nbparty::Stage(10033, 10019, 10064, 10050, 92, "pick a side", "&ahybyrn"))
+@var nbparty::challenge_stages.append(nbparty::Stage(10033, 10019, 10064, 10050, 95, "just whatever", "&ahybyrn"))
+@var nbparty::challenge_stages.append(nbparty::Stage(10033, 10019, 10064, 10050, 98, "beacon fun!", "&ahybyrn"))
+@var nbparty::challenge_stages.append(nbparty::Stage(10033, 10019, 10064, 10050, 101, "Preserved In Ice", "&arypho_ and &ahybyrn"))
