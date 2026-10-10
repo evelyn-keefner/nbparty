@@ -1,12 +1,18 @@
 @fast
+@var nbparty::currentGame.removeOfflinePlayers()
+@var nbparty::currentGame.updatePlayerListDisplays()
+
 @if (nbparty::currentGame.game_active)
-    @bypass /playsound minecraft:entity.villager.no master {{player.string()}} ~ ~ ~ 1.0 1.27
+    @console /execute in minecraft:theta run playsound minecraft:entity.villager.no master {{player.string()}} ~ ~ ~ 1.0 1.27
+    @if nbparty::currentGame.players.length() == 0
+        @var nbparty::currentGame.endGame()
+    @fi
     @player [Not Block Party] There is a game currently running! Please wait until it is finished.
 @else
     @if (nbparty::currentGame.players.length() == 0)
-        @bypass /playsound minecraft:entity.villager.no master {{player.string()}} ~ ~ ~ 1.0 1.27
+        @console /execute in minecraft:theta run playsound minecraft:entity.villager.no master {{player.string()}} ~ ~ ~ 1.0 1.27
         @player [Not Block Party] There are no players to start the game with!
     @else
-        @var nbparty::currentGame.startGame()
+        @console /function execute nbparty::currentGame.startGame()
     @fi
 @fi

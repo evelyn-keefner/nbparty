@@ -1,0 +1,16 @@
+# method removeOfflinePlayers()
+@fast 
+
+@define String[] remove_players = String[]
+@for String player_name in this.players
+    @define Player temp = Player(player_name)
+    @if temp == null
+        @var remove_players.append(player_name)
+    @fi
+@done
+
+@for String remove_player in remove_players
+    @define Int remove_index = this.players.find(remove_player)
+    @var this.players.remove(remove_index)
+    @var this.updatePlayerListDisplays()
+@done

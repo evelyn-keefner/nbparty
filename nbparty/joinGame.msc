@@ -2,6 +2,9 @@
 
 @define String player_name = player.string()
 
+@var nbparty::currentGame.removeOfflinePlayers()
+@var nbparty::currentGame.updatePlayerListDisplays()
+
 @if nbparty::currentGame.start_game_check
     @bypass /playsound minecraft:entity.villager.no master {{player.string()}} ~ ~ ~ 1.0 1.27
     @player [Not Block Party] You can't join or leave while the game is starting!
@@ -21,6 +24,9 @@
         @var nbparty::currentGame.updatePlayerListDisplays()
     @fi
 @else
+    @if nbparty::currentGame.players.length() == 0
+        @var nbparty::currentGame.endGame()
+    @fi
     @bypass /playsound minecraft:entity.villager.no master {{player.string()}} ~ ~ ~ 1.0 1.27
     @player [Not Block Party] Cannot join game while game is in progress!
 @fi

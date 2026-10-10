@@ -1,6 +1,7 @@
 # method playSoundToAllPlayers(String sound, String volume, String pitch)
 @fast
 
+@var this.removeOfflinePlayers()
 @for String player_name in this.players
-    @bypass /playsound {{sound}} master {{player_name}} ~ ~ ~ {{volume}} {{pitch}}
+    @console /execute in minecraft:theta as {{player_name}} at @s run playsound {{sound}} master @s ~ ~ ~ {{volume}} {{pitch}}
 @done 

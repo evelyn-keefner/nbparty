@@ -16,12 +16,14 @@
 @var this.challenge_round = false
 @var this.evil_round = false
 
-@if (!this.easy_mode || !this.normal_mode || !this.evil_mode)
+@if (!this.easy_mode && !this.normal_mode && !this.evil_mode)
     @var this.normal_mode = true
 @fi
 
 # save list of players in game for leaderboard update
 @var this.persistent_players = this.players
+
+@var this.checkForWinner("No One")
 
 # in theory last round never gets reached
 @for Int i in list::range(1, 1000)

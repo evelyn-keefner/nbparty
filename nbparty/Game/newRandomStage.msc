@@ -22,4 +22,4 @@
 @define Int z2 = this.current_stage.z2
 @define Int y = this.current_stage.y
 
-@bypass /execute in minecraft:theta run clone {{x1}} {{y}} {{z1}} {{x2}} {{y}} {{z2}} {{this.x}} {{this.y}} {{this.z}}
+@console /execute in minecraft:theta run clone {{x1}} {{y}} {{z1}} {{x2}} {{y}} {{z2}} {{this.x}} {{this.y}} {{this.z}}

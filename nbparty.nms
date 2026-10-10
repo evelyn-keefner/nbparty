@@ -5,10 +5,11 @@
     Stage[] challenge_stages
     Stage[] evil_stages
     Stage neutral_stage
-    relative Int deaths = 0
-    relative Int stages_passed = 0
-    relative Int highest_stage = 0
-    relative Int wins = 0
+    relative Int[] deaths = Int[0, 0, 0]
+    relative Int[] stages_passed = Int[0, 0, 0]
+    relative Int[] highest_stage = Int[0, 0, 0]
+    relative Int[] wins = Int[0, 0, 0]
+    relative Double[] average_rounds_survived = Double[0D, 0D, 0D]
 
     # setup functions (manually edit before running)
     __init__()
@@ -98,7 +99,10 @@
         Entity[] text_displays
 
         # game variables
+        # player list for game logic
         String[] players
+        # used to know which players to check when updating leaderboards
+        String[] persistent_players
         # current randomly selected stage
         Stage current_stage
         # round # 
@@ -129,7 +133,7 @@
         # takes current player list then changes all text display data (in the list) to have the list of players
         updatePlayerListDisplays()
         # helper function for updatePlayerListDisplays()
-        String playerListToTextDisplay()
+        String listToTextDisplay(String[] list)
 
         # Player helper functions
         # messages all players using distance=..64 centered at this.x, this.y, this.z. This messages even spectators EDIT TO BE BETTER
@@ -152,6 +156,7 @@
         Boolean playerInPlayableArea(String player_name)
         # called when new stage added. if player isn't directly on stage (mainly trying to remove those who log out or teleport away, counts as a death called eliminatePlayer() on them)
         removePlayersOutsideOfPlayArea()
+        removeOfflinePlayers()
 
         # handles main game loop and calls literally every other function if debugging or trying to figure out how my terrible code works start here
         startGame()
@@ -194,6 +199,15 @@
         # neutral stage loaded, waiting. TODO: add bossbar
         waitForRoundToStart()
 
+        # leaderboard 
+        Int getIndexFromCurrentMode()
+    @endclass
+
+    @class Leaderboard
+        Entity text_display
+        Int index
+
+        # cycleDifficulty()
     @endclass
 
 @endnamespace

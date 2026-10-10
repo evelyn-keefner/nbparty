@@ -1,4 +1,4 @@
 # method messagePlayersOnStage(String message)
 @fast
 
-@bypass /tellraw @a[x={{this.x}},y={{this.y - this.death_area_height}},z={{this.z}},dx={{this.xend - this.x}},dy={{(this.yend - this.y) + this.death_area_height}},dz={{this.zend - this.z}}] {{slytools::convertTextToTellraw(message)}}
+@bypass /execute in minecraft:theta run tellraw @a[x={{this.x}},y={{this.y - this.death_area_height}},z={{this.z}},dx={{this.xend - this.x}},dy={{(this.yend - this.y) + this.death_area_height}},dz={{this.zend - this.z}}] {{slytools::convertTextToTellraw(message)}}

@@ -6,9 +6,9 @@
 @var this.players.clear()
 @var this.updatePlayerListDisplays()
 
-# adds a little delay to reset the stage again if scripts were running, delays being able to start another game by 5s
+# adds a little delay to reset the stage again if scripts were running, delays being able to start another game by 2s
 @slow
-@delay 5s
+@delay 2s
 @fast
 @var this.resetStage()
 @var this.start_game_check = false

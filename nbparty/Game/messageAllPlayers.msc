@@ -1,4 +1,4 @@
 # method: Game.messageAllPlayers(String message)
 @fast
 
-@bypass /tellraw @a[x={{this.x}},y={{this.y}},z={{this.z}},distance=..64] {{slytools::convertTextToTellraw(message)}}
+@bypass /execute in minecraft:theta run tellraw @a[x={{this.x}},y={{this.y}},z={{this.z}},distance=..64] {{slytools::convertTextToTellraw(message)}}
