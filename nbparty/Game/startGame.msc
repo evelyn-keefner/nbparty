@@ -28,20 +28,13 @@
 
 # in theory last round never gets reached
 @for Int i in list::range(1, 1000)
-    # this is how loop is broken whenever game is ended by the last player being eliminated
-    @if !this.game_active
-        @var this.endGame()
-        @return
-    @fi
     # WAITING PERIOD BEFORE ROUND STARTS
     @var this.setAllPlayerHotbars("minecraft:air")
     @var this.resetStage()
-    @var this.waitForRoundToStart()
-
-    @if !this.game_active
-        @var this.endGame()
+    @if (!this.waitForRoundToStart())
         @return
     @fi
+
     # ROUND START PERIOD
     # check if players are still in the game (if they are logged out)
     @var this.removePlayersOutsideOfPlayArea()
@@ -54,29 +47,27 @@
     @var this.newRandomStage()
     @var this.displayStageNameAndCreator()
     # time you get to run around on the random stage before getting a block
-    @var this.waitForBlock()
-
-    @if !this.game_active
-        @var this.endGame()
+    @if (!this.waitForBlock())
         @return
     @fi
+
     # REACTION PERIOD
     # choose random block and set player hotbar
     @var this.chooseRandomBlock()
     @var this.playSoundToPlayersOnStage("minecraft:entity.experience_orb.pickup", "1.0", "1.0")
     @var this.playSoundToPlayersOnStage("minecraft:block.note_block.bell", "1.0", "1.0")
     # changes based on round time, there was an earlier check that should end game early if on a theoretically impossible round
-    @var this.waitForDisappearingBlock()
-
-    @if !this.game_active
-        @var this.endGame()
+    @if (!this.waitForDisappearingBlock())
         @return
     @fi
+
     # WAITING PERIOD TO ALLOW PLAYER DEATHS
     @var this.removeAllBlocksExceptChosen()
     @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.infect", "1.0", "1.0")
     @var this.playSoundToPlayersOnStage("minecraft:entity.zombie.destroy_egg", "1.0", "1.0")
-    @var this.waitAfterBlocksDisappeared()
+    @if (!this.waitAfterBlocksDisappeared())
+        @return
+    @fi
 
     @var this.countStagesPassed()
     @var this.checkForWinner()

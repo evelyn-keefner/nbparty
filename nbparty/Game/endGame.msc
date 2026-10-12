@@ -5,6 +5,7 @@
 @var this.round = 0
 @var this.players.clear()
 @var this.updatePlayerListDisplays()
+@bypass /bossbar remove nbparty
 
 # adds a little delay to reset the stage again if scripts were running, delays being able to start another game by 2s
 @slow

@@ -1,0 +1,16 @@
+# method setupBossbar(String name, Int max_time)
+@fast 
+
+@define String[] colors = String["blue", "green", "pink", "purple", "red", "white", "yellow"]
+@var colors.shuffle()
+
+@for String player_name in this.players
+    @define String id = "nbparty" + Player(player_name).getUniqueId()
+    @bypass /bossbar remove {{id}} 
+    @bypass /bossbar add {{id}} {{slytools::convertTextToTellraw(name)}}
+    @bypass /bossbar set {{id}} max {{max_time}}
+    @bypass /bossbar set {{id}} color {{colors[0]}}
+    # @bypass /bossbar set nbparty players @a[x={{this.x}},y={{this.y - this.death_area_height}},z={{this.z}},dx={{this.xend - this.x}},dy={{(this.yend - this.y) + this.death_area_height}},dz={{this.zend - this.z}}]
+    @bypass /bossbar set {{id}} players {{player_name}}
+    @bypass /bossbar set {{id}} visible true
+@done 

@@ -1,0 +1,14 @@
+# method updateBossbar(String new_name, Int current_time)
+@fast
+
+
+@for String player_name in this.players
+    @define String id = "nbparty" + Player(player_name).getUniqueId()
+    @if new_name != ""
+        @bypass /bossbar set {{id}} name {{slytools::convertTextToTellraw(new_name)}}
+    @fi
+
+    @if current_time >= 0
+        @bypass /bossbar set {{id}} value {{current_time}}
+    @fi
+@done

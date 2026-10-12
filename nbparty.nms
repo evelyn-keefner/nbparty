@@ -160,6 +160,10 @@
         removePlayersOutsideOfPlayArea()
         removeOfflinePlayers()
         removePlayer(String player_name)
+        # for players on stage
+        setupBossbar(String name, Int max_time)
+        # send empty string into new_name to not update, send negative number into current_time to not update
+        updateBossbar(String new_name, Int current_time)
 
         # handles main game loop and calls literally every other function if debugging or trying to figure out how my terrible code works start here
         startGame()
@@ -193,14 +197,17 @@
         countStagesPassed()
         endGame()
 
+        # Wait functions. Boolean values are the status of the game (whether it is active or not) used to return early in startGame()
+        # checks for game ended & for players outside of stage, ran in the wait functions (checked every tick)
+        Boolean runGameChecks()
         # Time player has after stage is loaded to walk around and look at it. TODO add boss bar for this section!
-        waitForBlock()
+        Boolean waitForBlock()
         # waits time specified by getDelayTimeFromRound (the time to react after block chosen before stage falls) TODO: add boss bar
-        waitForDisappearingBlock()
+        Boolean waitForDisappearingBlock()
         # after blocks disappear there's a little gap when they're gone and this gives people time to fall if they failed. TODO: add bossbar
-        waitAfterBlocksDisappeared()
+        Boolean waitAfterBlocksDisappeared()
         # neutral stage loaded, waiting. TODO: add bossbar
-        waitForRoundToStart()
+        Boolean waitForRoundToStart()
 
         # leaderboard 
         Int getIndexFromCurrentMode()

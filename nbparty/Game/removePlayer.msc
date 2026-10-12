@@ -1,6 +1,7 @@
-# method removePlayer(Player player)
+# method removePlayer(String player_name)
 @fast
 
 @define Int removeIndex = this.players.find(player_name)
 @var this.players.remove(removeIndex)
 @var this.updatePlayerListDisplays()
+@bypass /bossbar remove {{"nbparty" + Player(player_name).getUniqueId()}}

@@ -1,3 +1,14 @@
-# method waitForBlock()
+# method Boolean waitForBlock()
 
-@delay 5s
+@var this.setupBossbar("&l&eGet ready...", 100)
+
+# delay 5s
+@for Int i in list::range(0, 100)
+    @var this.updateBossbar("", 100 - i)
+    @if (!this.runGameChecks())
+        @return false
+    @fi
+    @delay 1
+@done
+
+@return true

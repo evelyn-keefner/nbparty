@@ -1,1 +1,13 @@
-@delay 3s
+# method Boolean waitForRoundToStart()
+
+@var this.setupBossbar("&l&8Waiting for round...", 60)
+
+# 3s
+@for Int i in list::range(0, 60)
+    @if (!this.runGameChecks())
+        @return false
+    @fi
+    @delay 1
+@done
+
+@return true

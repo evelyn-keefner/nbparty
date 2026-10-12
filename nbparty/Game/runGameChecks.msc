@@ -1,0 +1,10 @@
+# method Boolean runGameChecks()
+@fast
+
+@if !this.game_active
+    @var this.endGame()
+    @return false 
+@fi
+
+@var this.removePlayersOutsideOfPlayArea()
+@return true
