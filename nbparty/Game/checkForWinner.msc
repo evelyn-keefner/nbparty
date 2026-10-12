@@ -1,10 +1,24 @@
-# method checkForWinner(String player_name)
+# method checkForWinner()
 @fast
 
+# if players
 @if this.players.length() == 0
-    @var this.messageAllPlayers("[Not Block Party] {{player_name}} winsssssssssssssssssssssssss")
-    @if (this.persistent_players.length() >= 2)
-        @var nbparty::wins[Player(player_name)][this.getIndexFromCurrentMode()] += 1
+    # if game started with 0 players (dced)
+    @if this.to_be_eliminated_players.length() == 0
+        @var this.messageAllPlayers("[Not Block Party] Game started with 0 players! Ending...")
+        @var this.game_active = false
+        @return
     @fi
+
+
+    @for String eliminated_player in this.to_be_eliminated_players
+        @var this.messageAllPlayers("[Not Block Party] {{eliminated_player}} wins. I guess.")
+
+        @if (this.persistent_players.length() >= 2)
+            @var nbparty::wins[Player(eliminated_player)][this.getIndexFromCurrentMode()] += 1
+        @fi
+    @done 
     @var this.game_active = false
 @fi
+
+@var this.to_be_eliminated_players.clear()

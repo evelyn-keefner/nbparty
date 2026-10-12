@@ -10,7 +10,5 @@
 @done
 
 @for String remove_player in remove_players
-    @define Int remove_index = this.players.find(remove_player)
-    @var this.players.remove(remove_index)
-    @var this.updatePlayerListDisplays()
+    @var this.removePlayer(remove_player)
 @done

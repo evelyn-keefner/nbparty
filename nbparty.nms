@@ -103,6 +103,8 @@
         String[] players
         # used to know which players to check when updating leaderboards
         String[] persistent_players
+        # track all players who died on a stage to allow proper ties that aren't tick perfect
+        String[] to_be_eliminated_players
         # current randomly selected stage
         Stage current_stage
         # round # 
@@ -157,6 +159,7 @@
         # called when new stage added. if player isn't directly on stage (mainly trying to remove those who log out or teleport away, counts as a death called eliminatePlayer() on them)
         removePlayersOutsideOfPlayArea()
         removeOfflinePlayers()
+        removePlayer(String player_name)
 
         # handles main game loop and calls literally every other function if debugging or trying to figure out how my terrible code works start here
         startGame()
@@ -185,7 +188,7 @@
         # /clone & /fill to remove every block type except 1 chosen
         removeAllBlocksExceptChosen()
         # called by eliminatePlayer, checks for winner, and if there is a winner the game is ended. updates player stat
-        checkForWinner(String player_name)
+        checkForWinner()
         # update player stat stages passed
         countStagesPassed()
         endGame()

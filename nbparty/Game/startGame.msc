@@ -20,10 +20,11 @@
     @var this.normal_mode = true
 @fi
 
+@var this.removeOfflinePlayers()
+@var this.checkForWinner()
+
 # save list of players in game for leaderboard update
 @var this.persistent_players = this.players
-
-@var this.checkForWinner("No One")
 
 # in theory last round never gets reached
 @for Int i in list::range(1, 1000)
@@ -78,6 +79,7 @@
     @var this.waitAfterBlocksDisappeared()
 
     @var this.countStagesPassed()
+    @var this.checkForWinner()
 @done
 
 @var this.messageAllPlayers("The party is over now.")
