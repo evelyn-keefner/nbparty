@@ -1,6 +1,6 @@
 # method Boolean waitForRoundToStart()
 
-@var this.setupBossbar("&l&8Waiting for round...", 60)
+@var this.setupBossbar("&l&8Waiting for round...", "white", 60)
 
 # 3s
 @for Int i in list::range(0, 60)

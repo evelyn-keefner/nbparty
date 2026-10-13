@@ -1,12 +1,13 @@
 # method Boolean waitAfterBlocksDisappeared()
 
-@var this.setupBossbar("&l&0PAUSE", 100)
+@var this.setupBossbar("&l&0PAUSE", "white", 100)
 
 # 5s
 @for Int i in list::range(0, 100)
     @if (!this.runGameChecks())
         @return false
     @fi
+    @var this.updateBossbar("", 100 - i)
     @delay 1
 @done
 

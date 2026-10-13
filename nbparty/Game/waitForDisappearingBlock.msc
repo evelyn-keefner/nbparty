@@ -1,15 +1,17 @@
 # method Boolean waitForDisappearingBlock()
 
 @define Int numberOfTicks = this.getDelayTimeFromRound()
+@define Float seconds = this.ticksToSeconds(numberOfTicks)
 
-@var this.setupBossbar("&l&cRUN: {{math::roundToPlaces(Double(this.ticksToSeconds(numberOfTicks)), 2)}}", numberOfTicks)
+@var this.setupBossbar("&l&cRUN: {{Int((seconds * 10) / 10)}}.{{Int(seconds * 10) % 10}}{{Int(seconds * 100) % 10}}", "red", numberOfTicks)
 
 @for Int i in list::range(0, numberOfTicks)
     # 1t = 0.05s
     @if (!this.runGameChecks())
         @return false
     @fi
-    @var this.updateBossbar("&l&cRUN: {{math::roundToPlaces(Double(this.ticksToSeconds(numberOfTicks - i)), 2)}}", numberOfTicks - i)
+    @var seconds = this.ticksToSeconds(numberOfTicks - i)
+    @var this.updateBossbar("&l&cRUN: {{Int((seconds * 10) / 10)}}.{{Int(seconds * 10) % 10}}{{Int(seconds * 100) % 10}}", numberOfTicks - i)
     @delay 1
 @done
 

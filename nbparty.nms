@@ -161,7 +161,7 @@
         removeOfflinePlayers()
         removePlayer(String player_name)
         # for players on stage
-        setupBossbar(String name, Int max_time)
+        setupBossbar(String name, String color, Int max_time)
         # send empty string into new_name to not update, send negative number into current_time to not update
         updateBossbar(String new_name, Int current_time)
 
