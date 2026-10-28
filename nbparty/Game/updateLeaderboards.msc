@@ -1,0 +1,13 @@
+# method updateLeaderboards()
+@fast
+
+@define String[] death_leaderboard = this.death_stats[this.getIndexFromCurrentMode()].elements
+@define String[] stages_passed_leaderboard = this.stages_passed_stats[this.getIndexFromCurrentMode()].elements
+@define String[] highest_stage_leaderboard = this.highest_stage_stats[this.getIndexFromCurrentMode()].elements
+@define String[] win_leaderboard = this.win_stats[this.getIndexFromCurrentMode()].elements
+@define String[] average_round_survived_leaderboard = this.average_rounds_survived_stats[this.getIndexFromCurrentMode()].elements
+
+@define Int[] death_value_leaderboard = Int[]
+@define Int[] stages_passed_value_leaderboard = Int[]
+@define Int[] highest_stage_value_leaderboard = Int[]
+@define Int[] win_value_leaderboard = Int[]

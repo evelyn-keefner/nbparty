@@ -1,0 +1,6 @@
+@fast
+
+# coords are the coords of the button, leaderboard spawns 1 block above button
+
+@var nbparty::leaderboards = nbparty::Leaderboard[]
+@var nbparty::leaderboards.append(nbparty::Leaderboard(9965, 86, 10064, 0))

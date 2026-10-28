@@ -1,0 +1,13 @@
+# Constructor Leaderboard(Int x, Int y, Int z, Int stat_key)
+@fast
+
+@define Int[] iUUID = Int[math::randomInt(), math::randomInt(), math::randomInt(), math::randomInt()]
+@define String leaderboard_UUID = aktools::integer_list_to_uuid(iUUID)
+
+@bypass /execute in minecraft:theta run summon minecraft:text_display {{x}} {{y + 1}} {{z}} {billboard:"center",UUID:[I;{{iUUID[0]}},{{iUUID[1]}},{{iUUID[2]}},{{iUUID[3]}}]}
+
+@var this.text_display = Entity(leaderboard_UUID)
+@var this.cycle_difficulty_button = Block(x, y, z, "theta")
+@var this.index = 0
+@var this.stat_key = stat_key
+@var this.leaderboard_data = nbparty::ListWrapper[String["", "", "", "", "", "", "", "", "", ""], String["", "", "", "", "", "", "", "", "", ""], String["", "", "", "", "", "", "", "", "", ""]]

@@ -1,6 +1,6 @@
 @fast
 @for String player_name in this.players
-    @if this.playerOnStage(player_name)
+    @if this.playerOnStage(player_name) && this.stats_valid
         @var nbparty::stages_passed[Player(player_name)][this.getIndexFromCurrentMode()] += 1
     @fi
 @done

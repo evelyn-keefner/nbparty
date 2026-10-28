@@ -26,6 +26,11 @@
 # save list of players in game for leaderboard update
 @var this.persistent_players = this.players
 
+@var this.determineIfStatsValid()
+@if (!this.stats_valid)
+    @var this.messagePlayersOnStage("[Not Block Party] All stats are invalidated for this game! Not enough players.")
+@fi
+
 # in theory last round never gets reached
 @for Int i in list::range(1, 1000)
     # WAITING PERIOD BEFORE ROUND STARTS

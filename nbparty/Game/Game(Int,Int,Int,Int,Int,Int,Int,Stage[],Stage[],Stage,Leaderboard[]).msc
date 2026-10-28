@@ -10,6 +10,7 @@
 @var this.challenge_stages = challenge_stages
 @var this.evil_stages = evil_stages
 @var this.neutral_stage = neutral_stage
+@var this.leaderboards = leaderboards
 
 @var this.join_signs = Block[]
 @var this.text_displays = Entity[]
@@ -25,3 +26,4 @@
 
 @var this.evil_mode = false
 @var this.evil_round = false
+@var this.stats_valid = true

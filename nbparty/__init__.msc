@@ -12,7 +12,10 @@
 @player [nbparty] initializing neutral stage
 @var nbparty::initNeutralStage()
 
-# game should be initialized last as it relies on initStages() and initNeutralStage()
+@player [nparty] initilazing leaderboards
+@var nbparty::initLeaderboards()
+
+# game should be initialized last as it relies on initStages(), initNeutralStage() and initLeaderboards()
 @player [nbparty] initializing game object
 @var nbparty::initGame()
 

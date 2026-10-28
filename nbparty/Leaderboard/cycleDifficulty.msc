@@ -1,0 +1,4 @@
+# method cycleDifficulty()
+@fast
+
+@var this.index = (this.index + 1) % 3

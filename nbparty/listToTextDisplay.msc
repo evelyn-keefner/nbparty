@@ -1,4 +1,4 @@
-# method String listToTextDisplay(String[] list)
+# function String listToTextDisplay(String[] list)
 
 @define String text_display_string = ""
 

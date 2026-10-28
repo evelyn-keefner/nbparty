@@ -1,0 +1,4 @@
+# method updateLeaderboard(String text_display_text)
+@fast
+
+@bypass /execute in minecraft:theta run data modify entity {{this.text_display.getUniqueId()}} text set value {"text":"{{text_display_text}}"}

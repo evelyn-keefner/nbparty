@@ -1,0 +1,9 @@
+# method determineIfStatsValid()
+@fast
+
+@var this.stats_valid = true
+
+# being ran at start of startGame() so no need to use persistant player list
+@if this.players.length() <= 1
+    @var this.stats_valid = false
+@fi

@@ -1,8 +1,12 @@
 # method addTextDisplayToListFromJoinSign(Block block)
-
+@fast
 @if (!this.join_signs.contains(block))
     @var this.join_signs.append(block)
-    @bypass /minecraft:kill @e[x={{block.getX()}},y={{block.getY()}},z={{block.getZ()}},type=minecraft:text_display,limit=10,distance=..3]
-    @bypass /summon text_display {{block.getX()}} {{block.getY() + 2}} {{block.getZ()}} {billboard:"center",text:["{{nbparty::currentGame.listToTextDisplay(this.players)}}"]}
-    @var this.text_displays.append(Entity(block.getX(), (block.getY() + 2), block.getZ(), "theta"))
+    @bypass /execute in minecraft:theta run minecraft:kill @e[x={{block.getX()}},y={{block.getY()}},z={{block.getZ()}},type=minecraft:text_display,limit=10,distance=..3]
+
+    @define Int[] iUUID = Int[math::randomInt(), math::randomInt(), math::randomInt(), math::randomInt()]
+    @define String text_display_UUID = aktools::integer_list_to_uuid(iUUID)
+    @bypass /execute in minecraft:theta run summon minecraft:text_display {{block.getX()}} {{block.getY() + 2}} {{block.getZ()}} {billboard:"center",text:["{{nbparty::listToTextDisplay(this.players)}}"],UUID:[I;{{iUUID[0]}},{{iUUID[1]}},{{iUUID[2]}},{{iUUID[3]}}]}
+
+    @var this.text_displays.append(Entity(text_display_UUID))
 @fi

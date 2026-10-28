@@ -5,12 +5,14 @@
     @var this.messagePlayersOnStage("&z{{player_name}} is eliminated!")
 
     # update stats
-    @var nbparty::deaths[Player(player_name)][this.getIndexFromCurrentMode()] += 1
-    @if (this.round > nbparty::highest_stage[Player(player_name)][this.getIndexFromCurrentMode()])
-        @var nbparty::highest_stage[Player(player_name)][this.getIndexFromCurrentMode()] = this.round
+    @if this.stats_valid
+        @var nbparty::deaths[Player(player_name)][this.getIndexFromCurrentMode()] += 1
+        @if (this.round > nbparty::highest_stage[Player(player_name)][this.getIndexFromCurrentMode()])
+            @var nbparty::highest_stage[Player(player_name)][this.getIndexFromCurrentMode()] = this.round
+        @fi
+        @define Double average_rounds_survived_calculation = 1D * nbparty::stages_passed[Player(player_name)][this.getIndexFromCurrentMode()] / nbparty::deaths[Player(player_name)][this.getIndexFromCurrentMode()]
+        @var nbparty::average_rounds_survived[Player(player_name)][this.getIndexFromCurrentMode()] = math::roundToPlaces(average_rounds_survived_calculation, 2)
     @fi
-    @define Double average_rounds_survived_calculation = 1D * nbparty::stages_passed[Player(player_name)][this.getIndexFromCurrentMode()] / nbparty::deaths[Player(player_name)][this.getIndexFromCurrentMode()]
-    @var nbparty::average_rounds_survived[Player(player_name)][this.getIndexFromCurrentMode()] = math::roundToPlaces(average_rounds_survived_calculation, 2)
 
     # clear
     @var this.setPlayerHotbar(player_name, "air")

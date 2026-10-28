@@ -14,7 +14,7 @@
     @for String eliminated_player in this.to_be_eliminated_players
         @var this.messageAllPlayers("[Not Block Party] {{eliminated_player}} wins. I guess.")
 
-        @if (this.persistent_players.length() >= 2)
+        @if (this.stats_valid)
             @var nbparty::wins[Player(eliminated_player)][this.getIndexFromCurrentMode()] += 1
         @fi
     @done 

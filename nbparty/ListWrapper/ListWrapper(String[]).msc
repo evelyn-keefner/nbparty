@@ -1,0 +1,4 @@
+# constructor ListWrapper(String[] elements)
+@fast
+
+@var this.elements = elements
